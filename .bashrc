@@ -88,10 +88,12 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
+alias sl='ls'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias cdw='cd ~/works'
+alias cwd='cdw'
 alias cdp='cd ../'
 alias cpd='cd ../'
 alias cdpp='cd ../../'
@@ -104,6 +106,7 @@ alias g11='g++ -std=c++11'
 alias g14='g++ -std=c++14'
 alias g17='g++ -std=c++17'
 alias make='cmake . ;make'
+alias eixt='exit'
 alias shutdown='shutdown -h now'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
