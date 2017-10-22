@@ -102,5 +102,9 @@
  ;; If there is more than one, they won't work right.
 )
 
-; roslaunch highlighting
+;; roslaunch highlighting
 (add-to-list 'auto-mode-alist '("\\.launch$" . xml-mode))
+;; yaml highlighting
+(add-hook 'yaml-mode-hook
+          (lambda ()
+            (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
