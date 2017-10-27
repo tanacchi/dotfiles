@@ -1,3 +1,9 @@
+(package-initialize)
+(setq package-archives
+      '(("gnu" . "http://elpa.gnu.org/packages/")
+        ("melpa" . "http://melpa.org/packages/")
+        ("org" . "http://orgmode.org/elpa/")))
+
 ;;x-1 ショートカット
 (setq inhibit-splash-screen t)
 
@@ -105,6 +111,6 @@
 ;; roslaunch highlighting
 (add-to-list 'auto-mode-alist '("\\.launch$" . xml-mode))
 ;; yaml highlighting
-(add-hook 'yaml-mode-hook
-          (lambda ()
-            (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
+(define-key yaml-mode-map "\C-m" 'newline-and-indent)
