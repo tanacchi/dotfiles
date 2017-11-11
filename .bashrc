@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=5000
+HISTFILESIZE=6000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -137,3 +137,5 @@ source /opt/ros/kinetic/setup.bash
 source /home/tanacchi/works/ros_practice/devel/setup.bash
 source /home/tanacchi/works/fifth_robot_pkg/devel/setup.bash
 source /home/tanacchi/works/opencv/devel/setup.bash
+
+export EDITOR='emacs -nw'
