@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "coffee-mode" "coffee-mode.el" (22521 8652
-;;;;;;  432403 879000))
+;;;### (autoloads nil "coffee-mode" "coffee-mode.el" (23047 56584
+;;;;;;  297366 697000))
 ;;; Generated autoloads from coffee-mode.el
 
 (autoload 'coffee-mode "coffee-mode" "\
@@ -14,7 +14,13 @@ Major mode for editing CoffeeScript.
 
 (add-to-list 'auto-mode-alist '("\\.coffee\\'" . coffee-mode))
 
-(add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
+(add-to-list 'auto-mode-alist '("\\.iced\\'" . coffee-mode))
+
+(add-to-list 'auto-mode-alist '("Cakefile\\'" . coffee-mode))
+
+(add-to-list 'auto-mode-alist '("\\.cson\\'" . coffee-mode))
+
+(add-to-list 'interpreter-mode-alist '("coffee" . coffee-mode))
 
 ;;;***
 

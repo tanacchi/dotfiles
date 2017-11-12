@@ -18,7 +18,6 @@
 (set-face-attribute 'linum nil
                     :foreground "grey76"
                     :height 0.9)
-
 (column-number-mode t)
 
 ;; Window size
@@ -76,6 +75,10 @@
 ;; モードラインに行番号表示
 (line-number-mode t)
 
+;; 折り返しをしない
+(setq-default truncate-lines t)
+(setq-default truncate-partial-width-windows t)
+
 ;;file名の補完で大文字小文字を区別しない
 (setq completion-ignore-case t)
 
@@ -131,4 +134,12 @@
 
 ;; Split window
 (neotree)
-(split-window-horizontally)
+
+;; golden ratio
+(golden-ratio-mode 1)
+(add-to-list 'golden-ratio-exclude-buffer-names " *NeoTree*")
+;; active window move
+(global-set-key (kbd "<C-left>")  'windmove-left)
+(global-set-key (kbd "<C-down>")  'windmove-down)
+(global-set-key (kbd "<C-up>")    'windmove-up)
+(global-set-key (kbd "<C-right>") 'windmove-right)
