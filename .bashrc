@@ -147,3 +147,6 @@ for target in ${catkin_ws[@]}; do
     fi
 done
 export EDITOR='emacs -nw'
+
+# Greeting
+echo "Hi, ${USER} !!"
