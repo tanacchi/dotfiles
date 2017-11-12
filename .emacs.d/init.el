@@ -21,6 +21,10 @@
 
 (column-number-mode t)
 
+;; Window size
+;; full screen
+(set-frame-parameter nil 'fullscreen 'fullboth)
+
 ;;ツールバー非表示
 (tool-bar-mode -1)
 
@@ -120,3 +124,11 @@
 (add-to-list 'load-path "~/.emacs.d/neotree")
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
+
+;; ediff config
+;; ediff 時にフレームを使わない
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+
+;; Split window
+(neotree)
+(split-window-horizontally)
