@@ -132,9 +132,6 @@
 ;; ediff 時にフレームを使わない
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
-;; Split window
-(neotree)
-
 ;; golden ratio
 (golden-ratio-mode 1)
 (add-to-list 'golden-ratio-exclude-buffer-names " *NeoTree*")
