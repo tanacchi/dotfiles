@@ -110,7 +110,13 @@
 
 ;; roslaunch highlighting
 (add-to-list 'auto-mode-alist '("\\.launch$" . xml-mode))
+
 ;; yaml highlighting
-(require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
-(define-key yaml-mode-map "\C-m" 'newline-and-indent)
+;; (require 'yaml-mode)
+;; (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
+;; (define-key yaml-mode-map "\C-m" 'newline-and-indent)
+
+;; neotree
+(add-to-list 'load-path "~/.emacs.d/neotree")
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
