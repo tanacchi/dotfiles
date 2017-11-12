@@ -133,9 +133,17 @@ if ! shopt -oq posix; then
 fi
 
 #ROS workspace
-source /opt/ros/kinetic/setup.bash
-source /home/tanacchi/works/ros_practice/devel/setup.bash
-source /home/tanacchi/works/fifth_robot_pkg/devel/setup.bash
-source /home/tanacchi/works/opencv/devel/setup.bash
+ros_kinetic="/opt/ros/kinetic/setup.bash"
 
+catkin_ws=(
+    ${ros_kinetic}
+    "${HOME}/*/fifth_robot_pkg/devel/setup.bash"
+    "${HOME}/*/opencv/devel/setup.bash"
+    "${HOME}/*/ros_practice/devel/setup.bash"
+) 
+for target in ${catkin_ws[@]}; do
+    if [ -e ${target} ]; then
+        source ${target}
+    fi
+done
 export EDITOR='emacs -nw'
