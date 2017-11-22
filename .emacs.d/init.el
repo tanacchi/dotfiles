@@ -22,7 +22,7 @@
 
 ;; Window size
 ;; full screen
-(set-frame-parameter nil 'fullscreen 'fullboth)
+;; (set-frame-parameter nil 'fullscreen 'fullboth)
 
 ;;ツールバー非表示
 (tool-bar-mode -1)
