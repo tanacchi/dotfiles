@@ -135,8 +135,3 @@
 ;; golden ratio
 (golden-ratio-mode 1)
 (add-to-list 'golden-ratio-exclude-buffer-names " *NeoTree*")
-;; active window move
-(global-set-key (kbd "<C-left>")  'windmove-left)
-(global-set-key (kbd "<C-down>")  'windmove-down)
-(global-set-key (kbd "<C-up>")    'windmove-up)
-(global-set-key (kbd "<C-right>") 'windmove-right)
