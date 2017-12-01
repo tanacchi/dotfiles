@@ -140,6 +140,8 @@ catkin_ws=(
     "${HOME}/*/fifth_robot_pkg/devel/setup.bash"
     "${HOME}/*/opencv/devel/setup.bash"
     "${HOME}/*/ros_practice/devel/setup.bash"
+    "${HOME}/*/fourth_robot_ws/devel/setup.bash"
+    "${HOME}/*/*/ros_homosapi_ws/devel/setup.bash"
 ) 
 for target in ${catkin_ws[@]}; do
     if [ -e ${target} ]; then
