@@ -76,8 +76,8 @@
 (line-number-mode t)
 
 ;; 折り返しをしない
-(setq-default truncate-lines t)
-(setq-default truncate-partial-width-windows t)
+;; (setq-default truncate-lines t)
+;; (setq-default truncate-partial-width-windows t)
 
 ;;file名の補完で大文字小文字を区別しない
 (setq completion-ignore-case t)
