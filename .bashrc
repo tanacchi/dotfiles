@@ -109,7 +109,7 @@ alias g11='g++ -std=c++11'
 alias g14='g++ -std=c++14'
 alias g17='g++ -std=c++17'
 alias make='cmake . ;make'
-alias py='python'
+alias py='python3'
 alias eixt='exit'
 alias shutdown='shutdown -h now'
 # Add an "alert" alias for long running commands.  Use like so:
