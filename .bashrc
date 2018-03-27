@@ -90,6 +90,7 @@ fi
 
 # some more ls aliases
 alias sl='ls'
+alias ks='ls'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -143,7 +144,7 @@ ros_kinetic="/opt/ros/kinetic/setup.bash"
 catkin_ws=(
     ${ros_kinetic}
     "${HOME}/*/fifth_robot_pkg/devel/setup.bash"
-    "${HOME}/*/opencv/devel/setup.bash"
+    "${HOME}/*/*/*/opencv3mixsing/devel/setup.bash"
     "${HOME}/*/ros_practice/devel/setup.bash"
     "${HOME}/*/fourth_robot_ws/devel/setup.bash"
     "${HOME}/*/*/ros_homosapi_ws/devel/setup.bash"
@@ -153,7 +154,7 @@ for target in ${catkin_ws[@]}; do
         source ${target}
     fi
 done
-export EDITOR='emacs -nw'
+export EDITOR='emacs'
 
 # Greeting
 echo -e "\e[32;1m${USER}@${HOSTNAME}\e[m:\e[34;1m~\e[m$"
