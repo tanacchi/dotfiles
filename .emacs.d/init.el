@@ -20,6 +20,9 @@
                     :height 0.9)
 (column-number-mode t)
 
+;;行間
+(setq-default line-spacing 5)
+
 ;; Window size
 ;; full screen
 ;; (set-frame-parameter nil 'fullscreen 'fullboth)
