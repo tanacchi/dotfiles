@@ -59,7 +59,7 @@ fi
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-#    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    # PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 fi
 unset color_prompt force_color_prompt
@@ -116,6 +116,7 @@ alias py2='python2.7'
 alias kyutech='ssh -l q111026d remote-t.isc.kyutech.ac.jp'
 alias eixt='exit'
 alias shutdown='shutdown -h now'
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -159,8 +160,7 @@ done
 export EDITOR='emacs'
 
 # Ruby on Rails
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
