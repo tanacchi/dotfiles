@@ -113,6 +113,7 @@ alias g17='g++ -std=c++17'
 alias make='cmake . ;make'
 alias py='python3'
 alias py2='python2.7'
+alias kyutech='ssh -l q111026d remote-t.isc.kyutech.ac.jp'
 alias eixt='exit'
 alias shutdown='shutdown -h now'
 # Add an "alert" alias for long running commands.  Use like so:
