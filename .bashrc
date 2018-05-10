@@ -114,13 +114,48 @@ alias make='cmake . ;make'
 alias py='python3'
 alias py2='python2.7'
 alias arduino='cd ${HOME}/Documents/arduino-1.8.5 ;source arduino ;cd -'
-alias kyutech='ssh -l q111026d remote-t.isc.kyutech.ac.jp'
 alias eixt='exit'
 alias shutdown='shutdown -h now'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Functions about ssh
+function ssh-activate() {
+    if [ $# -ne 1 ]; then
+        echo "Prease set one ssh-key"
+        return
+    fi
+    eval `ssh-agent`
+    ssh-add $1
+}
+
+function kyutech-login() {
+    username="q111026d"
+    hostname="remote-t.isc.kyutech.ac.jp"
+    ssh -l "${username}" ${hostname}
+}
+
+function kyutech-pull() {
+    if [ $# -ne 1 ]; then
+        echo "Prease set file or directory which you want."
+        return
+    fi
+    username="q111026d"
+    hostname="remote-t.isc.kyutech.ac.jp"
+    scp -r "${username}@${hostname}:/home/t/${username}/$1" ${PWD}
+}
+
+function kyutech-pull() {
+    if [ $# -ne 1 ]; then
+        echo "Prease set file or directory which you want."
+        return
+    fi
+    username="q111026d"
+    hostname="remote-t.isc.kyutech.ac.jp"
+    scp -r ${PWD} "${username}@${hostname}:/home/t/${username}/$1"
+}
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
