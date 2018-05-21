@@ -18,7 +18,7 @@
   s = status
   sh = show
   st = stash
-  unstage = reset HEAD --
+  unstage = !git add --all && git reset HEAD --hard
 [color]
   ui = auto
 [core]
