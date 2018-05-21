@@ -20,8 +20,12 @@
                     :height 0.9)
 (column-number-mode t)
 
+;;日本語フォント設定
+(set-fontset-font t 'japanese-jisx0208' "TakaoPGothic")
+(add-to-list 'face-font-rescale-alist '(".*Takao P.*" . 0.70))
+
 ;;行間
-(setq-default line-spacing 5)
+(setq-default line-spacing 8)
 
 ;; Window size
 ;; full screen
