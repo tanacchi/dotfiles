@@ -150,7 +150,7 @@ function kyutech-pull() {
     scp -r "${username}@${hostname}:/home/t/${username}/$1" ${PWD}
 }
 
-function kyutech-pull() {
+function kyutech-push() {
     if [ $# -ne 1 ]; then
         echo "Prease set file or directory which you want."
         return
