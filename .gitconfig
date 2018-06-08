@@ -3,6 +3,7 @@
   name =  tanacchi
 [alias]
   a = add
+  aa = add --all
   br = branch
   co = checkout
   com = commit
