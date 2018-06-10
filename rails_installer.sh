@@ -1,6 +1,5 @@
 #!/bin/bash
 
-cp /etc/skel/.bashrc ~/
 rm -fr .rbenv/
 
 sudo apt-get install -y git curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev sqlite3 libsqlite3-dev
@@ -12,23 +11,14 @@ sudo apt-get install -y nodejs
 
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 
-echo '' >> ~/.bashrc
-echo '' >> ~/.bashrc
-echo 'export PATH=$HOME/.rbenv/bin:$PATH' >> ~/.bashrc
+echo -e '\n\nexport PATH=$HOME/.rbenv/bin:$PATH' >> ~/.bashrc
 
 echo $PATH > log
 export PATH=$HOME/.rbenv/bin:$PATH
-# less .bashrc
 source ~/.bashrc
 hash -r
 
-# echo $PATH >> log
-# echo "which rbenv" >> log
-# echo `which rbenv` >> log
-# less log
-
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-
 eval "$(rbenv init -)"
 
 source ~/.bashrc
