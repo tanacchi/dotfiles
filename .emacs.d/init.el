@@ -160,3 +160,13 @@
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
 (setq web-mode-markup-indent-offset 2)
+
+;; load-path で ~/.emacs.d とか書かなくてよくなる
+(when load-file-name
+  (setq user-emacs-directory (file-name-directory load-file-name)))
+
+;; el-get
+(add-to-list 'load-path (locate-user-emacs-file "el-get"))
+(require 'el-get)
+;; el-getでダウンロードしたパッケージは ~/.emacs.d/ に入るようにする
+(setq el-get-dir (locate-user-emacs-file ""))
