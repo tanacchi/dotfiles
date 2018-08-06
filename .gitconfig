@@ -1,35 +1,35 @@
 [user]
-  email = q111026d@mail.kyutech.jp
-  name =  tanacchi
+	email = q111026d@mail.kyutech.jp
+	name = tanacchi
 [alias]
-  a = add
-  aa = add --all
-  br = branch
-  co = checkout
-  com = commit
-  di = diff
-  fe = fetch
-  g = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
-  gg = log --all --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
-  ga = log --graph --decorate --oneline --all
-  l = log
-  ld = git log --diff-filter=D --summary
-  lo = log --oneline
-  lp = log -p
-  ls = log --stat
-  s = status
-  sh = show
-  st = stash
-  unstage = !git add --all && git reset HEAD --hard
+      a = add
+      aa = add --all
+      br = branch
+      co = checkout
+      com = commit
+      di = diff
+      fe = fetch
+      g = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+      gg = log --all --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+      ga = log --graph --decorate --oneline --all
+      l = log
+      ld = git log --diff-filter=D --summary
+      lo = log --oneline
+      lp = log -p
+      ls = log --stat
+      s = status
+      sh = show
+      st = stash
+      unstage = !git add --all && git reset HEAD --hard
 [color]
-  ui = auto
+      ui = auto
 [core]
-  editor = vi
+      editor = vi
 [merge]
-  ff = false
+      ff = false
 [pull]
-  rebase = true
+      rebase = true
 [push]
-  default = simple
+      default = simple
 [rerere]
-  enabled = true
+      enabled = true
