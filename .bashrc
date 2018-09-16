@@ -112,7 +112,7 @@ alias gpp='g++'
 alias g11='g++ -std=c++11'
 alias g14='g++ -std=c++14'
 alias g17='g++ -std=c++17'
-# alias make='cmake . ;make'
+alias cmake='cd build ;cmake .. ;make'
 alias py='python3'
 alias py2='python2.7'
 alias rls='rails'
@@ -201,6 +201,7 @@ catkin_ws=(
     "${HOME}/*/*/ros_homosapi_ws/devel/setup.bash"
     "${HOME}/works/slambot_ws/devel/setup.bash"
     "${HOME}/works/imu_filter_ws/devel/setup.bash"
+    "${HOME}/works/cartographer_ws/install_isolated/setup.bash"
 ) 
 for target in ${catkin_ws[@]}; do
     if [ -e ${target} ]; then
