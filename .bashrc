@@ -112,7 +112,7 @@ alias gpp='g++'
 alias g11='g++ -std=c++11'
 alias g14='g++ -std=c++14'
 alias g17='g++ -std=c++17'
-alias cmake='cd build ;cmake .. ;make'
+alias cmake='mkdir build -p ;cd build ;cmake .. ;make ;cd -'
 alias py='python3'
 alias py2='python2.7'
 alias rls='rails'
@@ -214,6 +214,10 @@ export EDITOR='emacs'
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
+# For point_cloud_viewer
+source $HOME/.cargo/env
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Greeting
 echo -e "\e[32;1m${USER}@${HOSTNAME}\e[m:\e[34;1m~\e[m$"
