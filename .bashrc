@@ -211,13 +211,13 @@ done
 export EDITOR='emacs'
 
 # Ruby on Rails
-export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+# export PATH=$HOME/.rbenv/bin:$PATH
+# eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 # For point_cloud_viewer
-source $HOME/.cargo/env
-export PATH="$HOME/.cargo/bin:$PATH"
+# source $HOME/.cargo/env
+# export PATH="$HOME/.cargo/bin:$PATH"
 
 # Greeting
 echo -e "\e[32;1m${USER}@${HOSTNAME}\e[m:\e[34;1m~\e[m$"
