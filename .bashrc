@@ -113,7 +113,7 @@ alias gpp='g++'
 alias g11='g++ -std=c++11'
 alias g14='g++ -std=c++14'
 alias g17='g++ -std=c++17'
-alias cmake='mkdir build -p ;cd build ;cmake .. ;make ;cd -'
+alias bld='mkdir build -p ;cd build ;cmake .. ;make ;cd -'
 alias py='python3'
 alias py2='python2.7'
 alias rls='rails'
@@ -195,14 +195,15 @@ ros_kinetic="/opt/ros/kinetic/setup.bash"
 
 catkin_ws=(
     ${ros_kinetic}
-    "${HOME}/*/fifth_robot_pkg/devel/setup.bash"
     "${HOME}/*/*/*/opencv3mixsing/devel/setup.bash"
     "${HOME}/*/ros_practice/devel/setup.bash"
     "${HOME}/*/fourth_robot_ws/devel/setup.bash"
     "${HOME}/*/*/ros_homosapi_ws/devel/setup.bash"
     "${HOME}/works/slambot_ws/devel/setup.bash"
+    "${HOME}/*/fifth_robot_pkg/devel/setup.bash"
     "${HOME}/works/imu_filter_ws/devel/setup.bash"
     "${HOME}/works/cartographer_ws/install_isolated/setup.bash"
+    "${HOME}/works/blam/internal/devel/setup.bash"
 ) 
 for target in ${catkin_ws[@]}; do
     if [ -e ${target} ]; then
@@ -212,9 +213,9 @@ done
 export EDITOR='emacs'
 
 # Ruby on Rails
-# export PATH=$HOME/.rbenv/bin:$PATH
-# eval "$(rbenv init -)"
-# export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 # For point_cloud_viewer
 # source $HOME/.cargo/env
@@ -223,3 +224,13 @@ export EDITOR='emacs'
 # Greeting
 echo -e "\e[32;1m${USER}@${HOSTNAME}\e[m:\e[34;1m~\e[m$"
 echo -e "\e[1m Hi, ${USER} !!\e[m"
+
+
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
+
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
