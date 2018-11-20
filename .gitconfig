@@ -1,6 +1,5 @@
-[user]
-	email = q111026d@mail.kyutech.jp
-	name = tanacchi
+[include]
+    path = .gitconfig.user
 [alias]
       a = add
       aa = add --all
