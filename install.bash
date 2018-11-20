@@ -11,3 +11,5 @@ ln -sfn  ${dotfiles}/.gitconfig ${HOME}/
 ln -sfn  ${dotfiles}/.gitconfig.user ${HOME}/
 ln -sfn  ${dotfiles}/.emacs.d   ${HOME}/
 ln -sfn  ${dotfiles}/.inputrc   ${HOME}/
+
+git submodule init && git submodule update
