@@ -12,4 +12,11 @@ ln -sfn  ${dotfiles}/.gitconfig.user ${HOME}/
 ln -sfn  ${dotfiles}/.emacs.d   ${HOME}/
 ln -sfn  ${dotfiles}/.inputrc   ${HOME}/
 
+terminator_config_dir="${HOME}/.config/terminator"
+if [ ! -d ${terminator_config_dir} ]; then
+    mkdir ${terminator_config_dir}
+fi
+
+ln -sfn ${dotfiles}/config  ${terminator_config_dir}/
+
 git submodule init && git submodule update
