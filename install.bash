@@ -19,4 +19,12 @@ fi
 
 ln -sfn ${dotfiles}/config  ${terminator_config_dir}/
 
+if [ ! `which trash-cli` ]; then
+  sudo apt install trash-cli
+fi
+
+if [ ! `which xsel` ]; then
+  sudo apt install xsel
+fi
+
 git submodule init && git submodule update
