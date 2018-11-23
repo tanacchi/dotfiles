@@ -26,7 +26,7 @@ set number
 set virtualedit=onemore
 
 " インデントはスマートインデント
-set smartindent
+set autoindent
 
 " ビープ音を可視化
 set visualbell
