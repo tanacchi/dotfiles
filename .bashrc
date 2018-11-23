@@ -214,10 +214,11 @@ done
 export EDITOR='emacs'
 
 # Ruby on Rails
-if [ `which rbenv`]; then
-  export PATH=$HOME/.rbenv/bin:$PATH
+export PATH=$HOME/.rbenv/bin:$PATH
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
+if [ `which rbenv` ]; then
   eval "$(rbenv init -)"
-  export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 fi
 
 # For point_cloud_viewer
