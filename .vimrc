@@ -81,3 +81,6 @@ set hlsearch
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
+" ビープの動作を無効化
+set visualbell t_vb=
+set noerrorbells
