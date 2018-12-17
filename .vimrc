@@ -17,6 +17,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'jacoborus/tender.vim'
+NeoBundle 'freeo/vim-kalisi'
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
@@ -76,7 +78,20 @@ nnoremap j gj
 nnoremap k gk
 
 " 色設定
-colorscheme elflord
+" If you have vim >=8.0 or Neovim >= 0.1.5
+" if (has("termguicolors"))
+"   set termguicolors
+" endif
+" " For Neovim 0.1.3 and 0.1.4
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" 
+" " Theme
+" syntax enable
+" colorscheme tender
+
+colorscheme kalisi
+set background=dark
+
 hi LineNr term=NONE cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 " Tab系
