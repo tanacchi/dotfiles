@@ -28,6 +28,10 @@ NeoBundle 'scrooloose/nerdcommenter'
 " C++ syntax highlighting
 NeoBundle 'vim-jp/vim-cpp'
 
+" MarkDown preview
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'kannokanno/previm'
+
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 
@@ -140,3 +144,12 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 set visualbell t_vb=
 set noerrorbells
 
+" Previm 
+" Space-p で MarkDown のプレビュー
+
+autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+
+let g:previm_open_cmd = ''
+nnoremap [previm] <Nop>
+nmap <Space>p [previm]
+nnoremap <silent> [previm] :<C-u>PrevimOpen<CR>
