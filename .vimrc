@@ -18,8 +18,15 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
+" Color settings
 NeoBundle 'jacoborus/tender.vim'
 NeoBundle 'freeo/vim-kalisi'
+
+" Comment out tool
+NeoBundle 'scrooloose/nerdcommenter'
+
+" C++ syntax highlighting
+NeoBundle 'vim-jp/vim-cpp'
 
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
