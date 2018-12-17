@@ -90,8 +90,9 @@ nnoremap k gk
 " syntax enable
 " colorscheme tender
 
-colorscheme kalisi
-set background=dark
+" colorscheme kalisi
+" set background=dark
+colorscheme elflord
 
 hi LineNr term=NONE cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
