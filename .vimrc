@@ -32,6 +32,10 @@ NeoBundle 'vim-jp/vim-cpp'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'kannokanno/previm'
 
+" For easy comment out
+" <leader>c<Space>
+NeoBundle 'scrooloose/nerdcommenter'
+
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 
