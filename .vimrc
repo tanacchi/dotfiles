@@ -21,12 +21,14 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Color settings
 NeoBundle 'jacoborus/tender.vim'
 NeoBundle 'freeo/vim-kalisi'
+NeoBundle 'dracula/vim'
 
 " Comment out tool
 NeoBundle 'scrooloose/nerdcommenter'
 
 " C++ syntax highlighting
 NeoBundle 'vim-jp/vim-cpp'
+NeoBundle 'octol/vim-cpp-enhanced-highlight'
 
 " MarkDown preview
 NeoBundle 'tyru/open-browser.vim'
@@ -107,7 +109,8 @@ nnoremap k gk
 
 " colorscheme kalisi
 " set background=dark
-colorscheme elflord
+" colorscheme elflord
+color dracula
 
 hi LineNr term=NONE cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
@@ -158,3 +161,11 @@ nnoremap <silent> [previm] :<C-u>PrevimOpen<CR>
 " Config for NERD Commenter
 let g:NERDSpaceDelims = 2
 
+" Config for vim-cpp-enhanced-highlight plugin
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 0
+let g:cpp_class_decl_highlight = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_experimental_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+let g:cpp_no_function_highlight = 1
