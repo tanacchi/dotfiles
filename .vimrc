@@ -155,7 +155,7 @@ autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
 let g:previm_open_cmd = ''
 nnoremap [previm] <Nop>
-nmap <Space>p [previm]
+nmap <C-p> [previm]
 nnoremap <silent> [previm] :<C-u>PrevimOpen<CR>
 
 " Config for NERD Commenter
