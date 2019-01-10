@@ -1,3 +1,5 @@
+!*.gitkeep*
+
 history
 
 *~
@@ -6,3 +8,5 @@ history
 auto-save-list
 
 *.gitconfig.user*
+
+.vim/*

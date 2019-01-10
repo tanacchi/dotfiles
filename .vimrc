@@ -1,4 +1,55 @@
 " setting
+
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath+=~/.vim/bundle/neobundle.vim/
+
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+" Color settings
+NeoBundle 'jacoborus/tender.vim'
+NeoBundle 'freeo/vim-kalisi'
+NeoBundle 'dracula/vim'
+
+" Comment out tool
+NeoBundle 'scrooloose/nerdcommenter'
+
+" C++ syntax highlighting
+NeoBundle 'vim-jp/vim-cpp'
+NeoBundle 'octol/vim-cpp-enhanced-highlight'
+
+" MarkDown preview
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'kannokanno/previm'
+
+" For easy comment out
+" <leader>c<Space>
+NeoBundle 'scrooloose/nerdcommenter'
+
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
 "文字コードをUFT-8に設定
 set fenc=utf-8
 
@@ -45,13 +96,25 @@ nnoremap j gj
 nnoremap k gk
 
 " 色設定
-colorscheme elflord
+" If you have vim >=8.0 or Neovim >= 0.1.5
+" if (has("termguicolors"))
+"   set termguicolors
+" endif
+" " For Neovim 0.1.3 and 0.1.4
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" 
+" " Theme
+" syntax enable
+" colorscheme tender
+
+" colorscheme kalisi
+" set background=dark
+" colorscheme elflord
+color dracula
+
 hi LineNr term=NONE cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 " Tab系
-" 不可視文字を可視化(タブが「▸-」と表示される)
-set list listchars=tab:\▸\-
-
 " Tab文字を半角スペースにする
 set expandtab
 
@@ -84,3 +147,25 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " ビープの動作を無効化
 set visualbell t_vb=
 set noerrorbells
+
+" Previm 
+" Space-p で MarkDown のプレビュー
+
+autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+
+let g:previm_open_cmd = ''
+nnoremap [previm] <Nop>
+nmap <C-p> [previm]
+nnoremap <silent> [previm] :<C-u>PrevimOpen<CR>
+
+" Config for NERD Commenter
+let g:NERDSpaceDelims = 2
+
+" Config for vim-cpp-enhanced-highlight plugin
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 0
+let g:cpp_class_decl_highlight = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_experimental_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+let g:cpp_no_function_highlight = 1
