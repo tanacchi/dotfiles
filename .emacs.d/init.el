@@ -128,11 +128,6 @@
 (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
 (define-key yaml-mode-map "\C-m" 'newline-and-indent)
 
-;; neotree
-(add-to-list 'load-path "~/.emacs.d/neotree")
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
-
 ;; ediff config
 ;; ediff 時にフレームを使わない
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
@@ -162,10 +157,6 @@
 ;; load-path で ~/.emacs.d とか書かなくてよくなる
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
-
-;; el-get
-(add-to-list 'load-path (locate-user-emacs-file "el-get"))
-(require 'el-get)
 
 ;;;; This snippet enables lua-mode
 ;; This line is not necessary, if lua-mode.el is already on your load-path
