@@ -21,10 +21,6 @@
 ;;行間
 (setq-default line-spacing 8)
 
-;; Window size
-;; full screen
-;; (set-frame-parameter nil 'fullscreen 'fullboth)
-
 ;;ツールバー非表示
 (tool-bar-mode -1)
 
@@ -45,10 +41,6 @@
 
 ;; タブ幅
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(send-mail-function (quote mailclient-send-it))
  '(tab-width 4))
 
@@ -63,9 +55,6 @@
 
 ;; エラー音をならなくする
 (setq ring-bell-function 'ignore)
-
-;; バックアップファイルを作成させない
-;;(setq make-backup-files nil)
 
 ;; 1行ずつスクロール
 (setq scroll-conservatively 35
@@ -111,7 +100,7 @@
             backup-directory-alist))
 
 (setq auto-save-file-name-transforms
-      `((".*" "~/.emacs.d/.auto-save-list/" t))
+      `((".*" "~/.emacs.d/auto-save-list/" t))
 )
 
 ;; ediff config
