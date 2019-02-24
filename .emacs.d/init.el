@@ -1,9 +1,3 @@
-(package-initialize)
-(setq package-archives
-      '(("gnu" . "http://elpa.gnu.org/packages/")
-        ("melpa" . "http://melpa.org/packages/")
-        ("org" . "http://orgmode.org/elpa/")))
-
 ;;x-1 ショートカット
 (setq inhibit-splash-screen t)
 
@@ -120,39 +114,9 @@
       `((".*" "~/.emacs.d/.auto-save-list/" t))
 )
 
-;; roslaunch highlighting
-(add-to-list 'auto-mode-alist '("\\.launch$" . xml-mode))
-
-;; yaml highlighting
-(require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
-(define-key yaml-mode-map "\C-m" 'newline-and-indent)
-
 ;; ediff config
 ;; ediff 時にフレームを使わない
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
-
-;; golden ratio
-(golden-ratio-mode 1)
-(add-to-list 'golden-ratio-exclude-buffer-names " *NeoTree*")
-
-;; For web-mode
-(setq web-mode-engines-alist
-      '(("php"    . "\\.phtml\\'")
-        ("blade"  . "\\.blade\\."))
-)
-
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-
-(setq web-mode-markup-indent-offset 2)
 
 ;; load-path で ~/.emacs.d とか書かなくてよくなる
 (when load-file-name
