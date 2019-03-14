@@ -2,7 +2,7 @@
 
 set -eu
 
-dotfiles_dir=${PWD}
+dotfiles_dir=$(cd "$(dirname ${0})"; pwd)
 
 function create_git_user_config()
 {
@@ -29,6 +29,7 @@ declare -a dotfiles=(
   ".bashrc" ".gitconfig" ".gitconfig.user" 
   ".emacs.d" ".inputrc" ".vimrc" ".vim"
 )
+
 for target in ${dotfiles[@]}; do
   link_file ${target}
 done
@@ -38,7 +39,6 @@ if [ ! -d ${terminator_config_dir} ]; then
   mkdir ${terminator_config_dir}
   ln -sfn ${dotfiles_dir}/config  ${terminator_config_dir}/
 fi
-
 
 if [ ! `which trash-put` ]; then
   sudo apt install trash-cli
