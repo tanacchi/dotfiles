@@ -19,9 +19,16 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
 " Color settings
+" NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'jacoborus/tender.vim'
 NeoBundle 'freeo/vim-kalisi'
 NeoBundle 'dracula/vim'
+
+" Color scheme preview
+" How to Use
+" :Unite -auto-preview colorscheme
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'ujihisa/unite-colorscheme'
 
 " Comment out tool
 NeoBundle 'scrooloose/nerdcommenter'

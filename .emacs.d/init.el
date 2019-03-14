@@ -1,9 +1,3 @@
-(package-initialize)
-(setq package-archives
-      '(("gnu" . "http://elpa.gnu.org/packages/")
-        ("melpa" . "http://melpa.org/packages/")
-        ("org" . "http://orgmode.org/elpa/")))
-
 ;;x-1 ショートカット
 (setq inhibit-splash-screen t)
 
@@ -27,10 +21,6 @@
 ;;行間
 (setq-default line-spacing 8)
 
-;; Window size
-;; full screen
-;; (set-frame-parameter nil 'fullscreen 'fullboth)
-
 ;;ツールバー非表示
 (tool-bar-mode -1)
 
@@ -51,10 +41,6 @@
 
 ;; タブ幅
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(send-mail-function (quote mailclient-send-it))
  '(tab-width 4))
 
@@ -69,9 +55,6 @@
 
 ;; エラー音をならなくする
 (setq ring-bell-function 'ignore)
-
-;; バックアップファイルを作成させない
-;;(setq make-backup-files nil)
 
 ;; 1行ずつスクロール
 (setq scroll-conservatively 35
@@ -117,60 +100,13 @@
             backup-directory-alist))
 
 (setq auto-save-file-name-transforms
-      `((".*" "~/.emacs.d/.auto-save-list/" t))
+      `((".*" "~/.emacs.d/auto-save-list/" t))
 )
-
-;; roslaunch highlighting
-(add-to-list 'auto-mode-alist '("\\.launch$" . xml-mode))
-
-;; yaml highlighting
-(require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
-(define-key yaml-mode-map "\C-m" 'newline-and-indent)
-
-;; neotree
-(add-to-list 'load-path "~/.emacs.d/neotree")
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
 
 ;; ediff config
 ;; ediff 時にフレームを使わない
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
-;; golden ratio
-(golden-ratio-mode 1)
-(add-to-list 'golden-ratio-exclude-buffer-names " *NeoTree*")
-
-;; For web-mode
-(setq web-mode-engines-alist
-      '(("php"    . "\\.phtml\\'")
-        ("blade"  . "\\.blade\\."))
-)
-
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-
-(setq web-mode-markup-indent-offset 2)
-
 ;; load-path で ~/.emacs.d とか書かなくてよくなる
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
-
-;; el-get
-(add-to-list 'load-path (locate-user-emacs-file "el-get"))
-(require 'el-get)
-
-;;;; This snippet enables lua-mode
-;; This line is not necessary, if lua-mode.el is already on your load-path
-(add-to-list 'load-path "~/.emacs.d/lua-mode")
-
-(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
-(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
-(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
