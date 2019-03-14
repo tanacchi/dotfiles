@@ -1,29 +1,46 @@
 #!/bin/bash
 
-dotfiles=${PWD}
+set -eu
 
-if [ ! -f ${dotfiles}/.gitconfig.user ]; then
+dotfiles_dir=${PWD}
+
+function create_git_user_config()
+{
   read -p "Please set your 'user name' on git : " git_user_name
   read -p "Please set your 'email' on git : " git_email
-  echo -e "[user]\n\tname = ${git_user_name}\n\temail = ${git_email}\n" > ${dotfiles}/.gitconfig.user
+  echo -e "[user]\n\tname = ${git_user_name}\n\temail = ${git_email}\n" > ${dotfiles_dir}/.gitconfig.user
+}
+
+function link_file()
+{
+  if [ -e ${HOME}/${1} -a ! -L ${HOME}/${1} ]; then
+    mv ${HOME}/${1} ${HOME}/${1}.backup
+    echo "${1} was replaced."
+  fi
+  ln -sfn ${dotfiles_dir}/${1} ${HOME}/
+}
+
+
+if [ ! -f ${dotfiles_dir}/.gitconfig.user ]; then
+  create_git_user_config
 fi
 
-ln -sfn  ${dotfiles}/.bashrc         ${HOME}/
-ln -sfn  ${dotfiles}/.gitconfig      ${HOME}/
-ln -sfn  ${dotfiles}/.gitconfig.user ${HOME}/
-ln -sfn  ${dotfiles}/.emacs.d        ${HOME}/
-ln -sfn  ${dotfiles}/.inputrc        ${HOME}/
-ln -sfn  ${dotfiles}/.vimrc          ${HOME}/
-ln -sfn  ${dotfiles}/.vim            ${HOME}/
+declare -a dotfiles=(
+  ".bashrc" ".gitconfig" ".gitconfig.user" 
+  ".emacs.d" ".inputrc" ".vimrc" ".vim"
+)
+for target in ${dotfiles[@]}; do
+  link_file ${target}
+done
 
 terminator_config_dir="${HOME}/.config/terminator"
 if [ ! -d ${terminator_config_dir} ]; then
-    mkdir ${terminator_config_dir}
+  mkdir ${terminator_config_dir}
+  ln -sfn ${dotfiles_dir}/config  ${terminator_config_dir}/
 fi
 
-ln -sfn ${dotfiles}/config  ${terminator_config_dir}/
 
-if [ ! `which trash-cli` ]; then
+if [ ! `which trash-put` ]; then
   sudo apt install trash-cli
 fi
 
