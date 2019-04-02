@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+# set -eu
 
 dotfiles_dir="$(cd "$(dirname ${0})"; pwd)/../"
 
