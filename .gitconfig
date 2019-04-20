@@ -21,6 +21,7 @@
     sh = show
     st = stash
     unstage = !git add --all && git reset HEAD --hard
+    sub-update = !git submodule foreach git pull origin master
 [color]
     ui = auto
 [core]
