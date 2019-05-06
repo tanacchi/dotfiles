@@ -10,11 +10,7 @@ if [ ! -f ${dotfiles_dir}/.gitconfig.user ]; then
   create_git_user_config
 fi
 
-declare -a dotfiles=(
-  ".bashrc" ".gitconfig" ".gitconfig.user" 
-  ".emacs.d" ".inputrc" ".vimrc" ".vim"
-)
-
+dotfiles=`ls -a  /home/tanacchi/dotfiles/  | tr ' ' '\n' | \grep -E "^\..*$" | grep -Ev "^\.\.?$"`
 for target in ${dotfiles[@]}; do
   link_file ${target}
 done
