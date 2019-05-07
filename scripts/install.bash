@@ -10,7 +10,8 @@ if [ ! -f ${dotfiles_dir}/.gitconfig.user ]; then
   create_git_user_config
 fi
 
-dotfiles=`ls -a  /home/tanacchi/dotfiles/  | tr ' ' '\n' | \grep -E "^\..*$" | grep -Ev "^\.\.?$"`
+dotfiles=`ls -a  /home/tanacchi/dotfiles/  | tr ' ' '\n' | grep -E "^\..*$" | grep -Ev "^(\.\.?|\.git)$"`
+echo -e "Following file will be installed:\n${dotfiles[@]}"
 for target in ${dotfiles[@]}; do
   link_file ${target}
 done
