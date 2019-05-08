@@ -90,7 +90,6 @@ fi
 
 # some more ls aliases
 alias arduino='cd ${HOME}/Documents/arduino-1.8.5 ;source arduino ;cd -'
-alias bld='mkdir build -p ;cd build ;cmake .. ;make ;cd -'
 alias ble='bundle'
 alias cdd='cd ${HOME}/dotfiles'
 alias cdp='cd ../'
@@ -136,6 +135,14 @@ fi
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+function bld() {
+  if [ ! -e "./CMakeLists.txt" ]; then
+    echo "There is no 'CMakeLists.txt' on current directory."
+    return
+  fi
+  mkdir -p build && cd build && cmake .. && make && cd -
+}
 
 # Functions about ssh
 function ssh-activate() {
