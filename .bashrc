@@ -117,6 +117,8 @@ alias la='ls -A'
 alias ll='ls -alF'
 alias py2='python2.7'
 alias py='python3'
+alias pip2='pip'
+alias pip='pip3'
 alias remove='rm'
 alias rls='rails'
 alias rm='trash-put'
@@ -141,7 +143,7 @@ function bld() {
     echo "There is no 'CMakeLists.txt' on current directory."
     return
   fi
-  mkdir -p build && cd build && cmake .. && make && cd -
+  mkdir -p build ;cd build ;cmake .. ;make ;cd -
 }
 
 # Functions about ssh
