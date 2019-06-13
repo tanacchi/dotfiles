@@ -37,6 +37,9 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'vim-jp/vim-cpp'
 NeoBundle 'octol/vim-cpp-enhanced-highlight'
 
+" Python auto-complete
+NeoBundle 'davidhalter/jedi-vim'
+
 " MarkDown preview
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'kannokanno/previm'
