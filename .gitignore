@@ -7,4 +7,5 @@ history
 
 *.gitconfig.user*
 
-.vim/*
+.vim/bundle/*
+.vim/.netrwhist
