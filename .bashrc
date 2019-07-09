@@ -143,7 +143,7 @@ function bld() {
     echo "There is no 'CMakeLists.txt' on current directory."
     return
   fi
-  mkdir -p build ;cd build ;cmake .. ;make ;cd -
+  mkdir -p build ;cd build ;cmake .. ;make -j ;cd -
 }
 
 # Functions about ssh
