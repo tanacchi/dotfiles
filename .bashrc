@@ -203,19 +203,10 @@ if ! shopt -oq posix; then
 fi
 
 #ROS workspace
-ros_kinetic="/opt/ros/kinetic/setup.bash"
+ros_melodic="/opt/ros/melodic/setup.bash"
 
 catkin_ws=(
-    ${ros_kinetic}
-    "${HOME}/*/*/*/opencv3mixsing/devel/setup.bash"
-    "${HOME}/*/ros_practice/devel/setup.bash"
-    "${HOME}/*/fourth_robot_ws/devel/setup.bash"
-    "${HOME}/*/*/ros_homosapi_ws/devel/setup.bash"
-    "${HOME}/works/slambot_ws/devel/setup.bash"
-    "${HOME}/*/fifth_robot_pkg/devel/setup.bash"
-    "${HOME}/works/imu_filter_ws/devel/setup.bash"
-    "${HOME}/works/cartographer_ws/install_isolated/setup.bash"
-    "${HOME}/works/blam/internal/devel/setup.bash"
+    ${ros_melodic}
 ) 
 for target in ${catkin_ws[@]}; do
     if [ -e ${target} ]; then
