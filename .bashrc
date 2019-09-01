@@ -207,13 +207,14 @@ ros_melodic="/opt/ros/melodic/setup.bash"
 
 catkin_ws=(
     ${ros_melodic}
+   "${HOME}/works/*/devel/setup.bash"
 ) 
 for target in ${catkin_ws[@]}; do
     if [ -e ${target} ]; then
         source ${target}
     fi
 done
-export EDITOR='emacs'
+export EDITOR='vim'
 
 # Ruby on Rails
 export PATH=$HOME/.rbenv/bin:$PATH
@@ -230,3 +231,4 @@ fi
 # Greeting
 echo -e "\e[32;1m${USER}@${HOSTNAME}\e[m:\e[34;1m~\e[m$"
 echo -e "\e[1m Hi, ${USER} !!\e[m"
+alias ic="ibmcloud"

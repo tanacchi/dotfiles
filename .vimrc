@@ -38,7 +38,7 @@ NeoBundle 'vim-jp/vim-cpp'
 NeoBundle 'octol/vim-cpp-enhanced-highlight'
 
 " Python auto-complete
-NeoBundle 'davidhalter/jedi-vim'
+" NeoBundle 'davidhalter/jedi-vim'
 
 " MarkDown preview
 NeoBundle 'tyru/open-browser.vim'
@@ -47,6 +47,9 @@ NeoBundle 'kannokanno/previm'
 " For easy comment out
 " <leader>c<Space>
 NeoBundle 'scrooloose/nerdcommenter'
+
+" For ROS
+" NeoBundle "taketwo/vim-ros"
 
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
@@ -179,3 +182,8 @@ let g:cpp_experimental_simple_template_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
+
+autocmd BufRead,BufNewFile *.launch setfiletype html
+autocmd BufRead,BufNewFile *.urdf setfiletype html
+autocmd BufRead,BufNewFile *.world setfiletype html
+autocmd BufRead,BufNewFile *.sdf setfiletype html
