@@ -183,7 +183,4 @@ let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
 
-autocmd BufRead,BufNewFile *.launch setfiletype html
-autocmd BufRead,BufNewFile *.urdf setfiletype html
-autocmd BufRead,BufNewFile *.world setfiletype html
-autocmd BufRead,BufNewFile *.sdf setfiletype html
+autocmd BufRead,BufNewFile *.{launch,urdf,world,sdf} setfiletype html
