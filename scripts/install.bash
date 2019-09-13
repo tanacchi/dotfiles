@@ -8,6 +8,9 @@ source ${dotfiles_dir}/scripts/functions.bash
 
 if [ ! -f ${dotfiles_dir}/.gitconfig.user ]; then
   create_git_user_config
+else
+  echo "dotfiles are already installed."
+  exit 0
 fi
 
 dotfiles=`ls -a "${dotfiles_dir}/" | tr ' ' '\n' | grep -E "^\..*$" | grep -Ev "^(\.\.?|\.git)$"`
