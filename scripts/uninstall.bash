@@ -22,3 +22,5 @@ done
 if [ ! -e "${HOME}/.bashrc" ]; then
   cp "/etc/skel/.bashrc" "${HOME}"
 fi
+
+rm "${dotfiles_dir}/.gitconfig.user"
