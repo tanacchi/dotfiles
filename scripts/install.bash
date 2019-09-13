@@ -13,7 +13,7 @@ else
   exit 0
 fi
 
-dotfiles=`ls -a "${dotfiles_dir}/" | tr ' ' '\n' | grep -E "^\..*$" | grep -Ev "^(\.\.?|\.git)$"`
+dotfiles=`ls -A "${dotfiles_dir}/" | tr ' ' '\n' | grep -E "^\..*$" | grep -Ev "^(\.git|\.terminator)$"`
 echo -e "Following file will be installed:\n${dotfiles[@]}"
 for target in ${dotfiles[@]}; do
   link_file ${target}
@@ -21,8 +21,8 @@ done
 
 terminator_config_dir="${HOME}/.config/terminator"
 if [ ! -d ${terminator_config_dir} ]; then
-  mkdir ${terminator_config_dir}
-  ln -sfn ${dotfiles_dir}/config  ${terminator_config_dir}/
+  mkdir -p ${terminator_config_dir}
+  ln -sfn ${dotfiles_dir}/.terminator ${terminator_config_dir}/config
 fi
 
 if [ ! `which trash-put` ]; then
