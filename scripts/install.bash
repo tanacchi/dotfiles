@@ -23,7 +23,10 @@ terminator_config_dir="${HOME}/.config/terminator"
 if [ ! -d ${terminator_config_dir} ]; then
   mkdir -p ${terminator_config_dir}
 fi
-ln -sfn ${dotfiles_dir}/.terminator ${terminator_config_dir}/config
+if [ -f "${terminator_config_dir}/config" ]; then
+  mv "${terminator_config_dir}/config" "${terminator_config_dir}/config.backup"
+fi
+ln -sfn "${dotfiles_dir}/.terminator" "${terminator_config_dir}/config"
 
 if [ ! `which trash-put` ]; then
   sudo apt install trash-cli
