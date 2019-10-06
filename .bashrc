@@ -89,7 +89,6 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias arduino='cd ${HOME}/Documents/arduino-1.8.5 ;source arduino ;cd -'
 alias ble='bundle'
 alias cdd='cd ${HOME}/dotfiles'
 alias cdp='cd ../'
