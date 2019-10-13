@@ -4,7 +4,7 @@
     a = add
     aa = add --all
     br = branch
-    co = checkout
+    co = !echo "[ERROR] Do not use 'checkout' command"
     com = commit
     di = diff
     ds = diff --staged
@@ -17,9 +17,11 @@
     lo = log --oneline
     lp = log -p
     ls = log --stat
+    rr = restore
     s = status
     sh = show
     st = stash
+    sw = switch
     unstage = !git add --all && git reset HEAD --hard
     sub-update = !git submodule foreach git pull origin master
 [color]
