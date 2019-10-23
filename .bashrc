@@ -90,6 +90,7 @@ fi
 
 # some more ls aliases
 alias ble='bundle'
+alias cb='catkin build'
 alias cdd='cd ${HOME}/dotfiles'
 alias cdp='cd ../'
 alias cdpp='cd ../../'
