@@ -9,6 +9,8 @@ endif
 
 " Required:
 set runtimepath+=~/.vim/bundle/neobundle.vim/
+set backspace=indent,eol,start
+
 
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
