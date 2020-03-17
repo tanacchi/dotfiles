@@ -12,13 +12,6 @@ sudo apt-get install git \
                      sqlite3 \
                      libsqlite3-dev 
 
-if [ ! `which nodejs` ]; then
-  # Node.js
-  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-  sudo apt-get install -y nodejs
-fi
-
-
 if [ ! `which rbenv` ]; then
   git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 
