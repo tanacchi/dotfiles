@@ -30,6 +30,9 @@ NeoBundle 'dracula/vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'ujihisa/unite-colorscheme'
 
+" Auto close parentheses
+NeoBundle 'cohama/lexima.vim'
+
 " Comment out tool
 NeoBundle 'scrooloose/nerdcommenter'
 
@@ -38,7 +41,7 @@ NeoBundle 'vim-jp/vim-cpp'
 NeoBundle 'octol/vim-cpp-enhanced-highlight'
 
 " Python auto-complete
-" NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'davidhalter/jedi-vim'
 
 " MarkDown preview
 NeoBundle 'tyru/open-browser.vim'
