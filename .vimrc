@@ -117,7 +117,7 @@ nnoremap k gk
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " 
 " " Theme
-" syntax enable
+syntax enable
 " colorscheme tender
 
 " colorscheme kalisi
