@@ -56,6 +56,12 @@ NeoBundle 'scrooloose/nerdcommenter'
 " For ROS
 " NeoBundle "taketwo/vim-ros"
 
+" For Vue component
+NeoBundle 'posva/vim-vue'
+
+" For rapid html editing
+NeoBundle 'mattn/emmet-vim'
+
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 
