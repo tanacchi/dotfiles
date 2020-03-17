@@ -125,6 +125,7 @@ alias rm='trash-put'
 alias s='ls -CF'
 alias shutdown='shutdown -h now'
 alias sl='ls'
+alias vi='vim'
 
 # trash-cli
 # Clone from 'https://github.com/andreafrancia/trash-cli'
