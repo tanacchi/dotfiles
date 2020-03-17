@@ -44,13 +44,7 @@ if [ ! `which rbenv` ]; then
   gem install sqlite3 -v '1.3.13'
 fi
 
-if [ ! `which heroku` ]; then
-  wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
-fi
-
 gem cleanup
 gem list
 gem -v
 rails -v
-heroku -v
-
