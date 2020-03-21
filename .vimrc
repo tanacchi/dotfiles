@@ -63,6 +63,9 @@ NeoBundle 'posva/vim-vue'
 " For rapid html editing
 NeoBundle 'mattn/emmet-vim'
 
+" Highlight whitespace on end of line
+NeoBundle 'bronson/vim-trailing-whitespace'
+
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 
@@ -127,7 +130,7 @@ nnoremap k gk
 " endif
 " " For Neovim 0.1.3 and 0.1.4
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-" 
+"
 " " Theme
 syntax enable
 colorscheme tender
@@ -173,7 +176,7 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 set visualbell t_vb=
 set noerrorbells
 
-" Previm 
+" Previm
 " Space-p で MarkDown のプレビュー
 
 autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
