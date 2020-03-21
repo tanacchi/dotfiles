@@ -33,7 +33,8 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'ujihisa/unite-colorscheme'
 
 " Auto close parentheses
-NeoBundle 'cohama/lexima.vim'
+" NeoBundle 'cohama/lexima.vim'
+NeoBundle 'Townk/vim-autoclose'
 
 " Comment out tool
 NeoBundle 'scrooloose/nerdcommenter'
@@ -129,14 +130,14 @@ nnoremap k gk
 " 
 " " Theme
 syntax enable
-" colorscheme tender
+colorscheme tender
 
 " colorscheme kalisi
 " set background=dark
 " colorscheme elflord
-color dracula
+" color dracula
 
-hi LineNr term=NONE cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+" hi LineNr term=NONE cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 " Tab系
 " Tab文字を半角スペースにする
