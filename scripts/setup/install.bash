@@ -2,9 +2,9 @@
 
 # set -eu
 
-dotfiles_dir="$(cd "$(dirname ${0})"; pwd)/../"
+dotfiles_dir="$(cd "$(dirname ${0})"; pwd)/../../"
 
-source ${dotfiles_dir}/scripts/functions.bash
+source ${dotfiles_dir}/scripts/utils/functions.bash
 
 if [ ! -f ${dotfiles_dir}/.gitconfig.user ]; then
   create_git_user_config
