@@ -2,7 +2,7 @@
 
 # set -eu
 
-dotfiles_dir="$(cd "$(dirname ${0})"; pwd)/../"
+dotfiles_dir="$(cd "$(dirname ${0})"; pwd)/../../"
 
 source ${dotfiles_dir}/scripts/utils/functions.bash
 
