@@ -36,9 +36,6 @@ NeoBundle 'ujihisa/unite-colorscheme'
 " NeoBundle 'cohama/lexima.vim'
 NeoBundle 'Townk/vim-autoclose'
 
-" Comment out tool
-NeoBundle 'scrooloose/nerdcommenter'
-
 " C++ syntax highlighting
 NeoBundle 'vim-jp/vim-cpp'
 NeoBundle 'octol/vim-cpp-enhanced-highlight'
@@ -58,7 +55,7 @@ NeoBundle 'scrooloose/nerdcommenter'
 " NeoBundle "taketwo/vim-ros"
 
 " For Vue component
-NeoBundle 'posva/vim-vue'
+NeoBundle 'storyn26383/vim-vue'
 
 " For rapid html editing
 NeoBundle 'mattn/emmet-vim'
@@ -199,3 +196,24 @@ let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
 
 autocmd BufRead,BufNewFile *.{launch,urdf,world,sdf} setfiletype html
+
+" NERDCommenter setting for .vue file
+let g:ft = ''
+function! NERDCommenter_before()
+  if &ft == 'vue'
+    let g:ft = 'vue'
+    let stack = synstack(line('.'), col('.'))
+    if len(stack) > 0
+      let syn = synIDattr((stack)[0], 'name')
+      if len(syn) > 0
+        exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+      endif
+    endif
+  endif
+endfunction
+function! NERDCommenter_after()
+  if g:ft == 'vue'
+    setf vue
+    let g:ft = ''
+  endif
+endfunction
