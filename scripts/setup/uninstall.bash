@@ -2,10 +2,10 @@
 
 # set -eu
 
-dotfiles_dir="$(cd "$(dirname ${0})"; pwd)/../"
+dotfiles_dir="$(cd "$(dirname ${0})"; pwd)/.."
 
 declare -a dotfiles=(
-  ".bashrc" ".gitconfig" ".gitconfig.user" 
+  ".bashrc" ".gitconfig" ".gitconfig.user"
   ".emacs.d" ".inputrc" ".vimrc" ".vim"
 )
 
