@@ -19,10 +19,9 @@ sudo apt install  -y git \
                      ruby-dev \
                      lua5.2 \
                      liblua5.2-dev
-git clone "https://github.com/vim/vim.git" "./vim"
-cd "./vim"
-./configure --with-features=huge --enable-gui=gtk2 --enable-perlinterp=yes --enable-pythoninterp=yes --enable-python3interp=yes --enable-rubyinterp=yes --enable-luainterp=yes --enable-fail-if-missing
-make reconfig
+git clone "https://github.com/vim/vim.git" ./vim
+cd ./vim
+./configure --with-features=huge --enable-gui=gtk2 --enable-perlinterp=yes --enable-pythoninterp=yes --enable-python3interp=yes --enable-rubyinterp=yes --enable-luainterp=yes
 sudo make install
 cd -
-rm -rf ./vim
+trash-put -rf ./vim
