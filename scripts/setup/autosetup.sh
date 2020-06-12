@@ -25,7 +25,7 @@ ssh-keygen -t rsa -b 4096 -f "${HOME}/.ssh/github"
 sh ${scripts_dir}/config/git_ssh_config.sh
 
 # Re-Clone dotfiles repository
-rm ${dotfiles_dir}
+rm -rf ${dotfiles_dir}
 git clone git@github.com:tanacchi/dotfiles.git ${dotfiles_dir}
 
 # Install dotfiles
