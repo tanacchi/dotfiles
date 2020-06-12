@@ -9,9 +9,9 @@ dotfiles_dir="${HOME}/dotfiles"
 scripts_dir="${dotfiles_dir}/scripts"
 
 # Update repositories and packages
-sudo apt install update
-sudo apt install upgrade
-sudo apt install dist-upgrade
+sudo apt update       -y
+sudo apt upgrade      -y
+sudo apt dist-upgrade -y
 
 # Install required tools
 sudo apt install git terminator -y
