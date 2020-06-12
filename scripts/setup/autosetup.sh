@@ -21,6 +21,7 @@ cd ${HOME}
 git clone https://github.com/tanacchi/dotfiles.git ${dotfiles_dir}
 
 # Generate ssh keys for GitHub
+mkdir "${HOME}/.ssh"
 ssh-keygen -t rsa -b 4096 -f "${HOME}/.ssh/github"
 sh ${scripts_dir}/config/git_ssh_config.sh
 
