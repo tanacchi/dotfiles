@@ -14,7 +14,10 @@ sudo apt upgrade      -y
 sudo apt dist-upgrade -y
 
 # Install required tools
-sudo apt install git terminator -y
+sudo apt install -y git \
+                 terminator \
+                 trash-cli \
+                 xcel
 
 # Clone dotfiles repository
 cd ${HOME}

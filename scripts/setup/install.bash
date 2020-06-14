@@ -28,12 +28,4 @@ if [ -f "${terminator_config_dir}/config" ]; then
 fi
 ln -sfn "${dotfiles_dir}/.terminator" "${terminator_config_dir}/config"
 
-if [ ! `which trash-put` ]; then
-  sudo apt install trash-cli
-fi
-
-if [ ! `which xsel` ]; then
-  sudo apt install xsel
-fi
-
 git submodule init && git submodule update
