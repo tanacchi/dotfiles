@@ -21,10 +21,15 @@ sudo apt install -y git \
 
 # Clone dotfiles repository
 cd ${HOME}
+if [ -d ${dotfiles_dir} ]; then
+  mv "${dotfiles_dir}" "${dotfiles_dir.backup}"
+fi
 git clone https://github.com/tanacchi/dotfiles.git ${dotfiles_dir}
 
 # Generate ssh keys for GitHub
-mkdir "${HOME}/.ssh"
+if [ -d "${HOME}/.ssh" ]; then
+  mkdir "${HOME}/.ssh"
+fi
 sh ${scripts_dir}/config/git_ssh_config.sh
 
 # Install (or Build) git, vivaldi, vim
