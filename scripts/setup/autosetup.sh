@@ -17,7 +17,7 @@ sudo apt dist-upgrade -y
 sudo apt install -y git \
                  terminator \
                  trash-cli \
-                 xcel
+                 xsel
 
 # Clone dotfiles repository
 cd ${HOME}
