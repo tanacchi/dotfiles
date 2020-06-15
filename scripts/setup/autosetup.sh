@@ -27,7 +27,7 @@ fi
 git clone https://github.com/tanacchi/dotfiles.git ${dotfiles_dir}
 
 # Generate ssh keys for GitHub
-if [ -d "${HOME}/.ssh" ]; then
+if [ ! -d "${HOME}/.ssh" ]; then
   mkdir "${HOME}/.ssh"
 fi
 sh ${scripts_dir}/config/git_ssh_config.sh
