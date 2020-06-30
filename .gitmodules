@@ -1,3 +1,6 @@
 [submodule ".vim/bundle/neobundle.vim"]
 	path = .vim/bundle/neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim
+[submodule ".emacs.d"]
+	path = .emacs.d
+	url = https://github.com/syl20bnr/spacemacs
