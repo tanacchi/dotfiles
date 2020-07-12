@@ -2,13 +2,10 @@
 
 # set -eu
 
-dotfiles_dir="$(cd "$(dirname ${0})"; pwd)/.."
-
-declare -a dotfiles=(
-  ".bashrc" ".gitconfig" ".gitconfig.user"
-  ".emacs.d" ".inputrc" ".vimrc" ".vim"
-)
-
+dotfiles_dir="$(cd "$(dirname ${0})"; pwd)/../.."
+echo "${dotfiles_dir}"
+dotfiles=`ls -A "${dotfiles_dir}/" | tr ' ' '\n' | grep -E "^\..*$" | grep -Ev "^\.(git|terminator|gitmodules|gitignore)$"`
+echo "${dotfiles[@]}"
 for target in ${dotfiles[@]}; do
   if [ -e "${HOME}/${target}" ]; then
     rm "${HOME}/${target}"
