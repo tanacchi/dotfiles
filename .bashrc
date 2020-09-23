@@ -203,3 +203,4 @@ export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRAR
 # Greeting
 echo -e "\e[32;1m${USER}@${HOSTNAME}\e[m:\e[34;1m~\e[m$"
 echo -e "\e[1m Hi, ${USER} !!\e[m"
+eval "$(starship init bash)"
