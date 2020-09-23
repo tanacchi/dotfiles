@@ -31,6 +31,8 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     rust
+     yaml
      (python :variables
              python-enable-yapf-format-on-save t
              python-sort-imports-on-save t
@@ -58,7 +60,7 @@ values."
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      spell-checking
-     syntax-checking
+     ;; syntax-checking
      ;; version-control
      )
    ;; List of additional packages that will be installed without being
@@ -326,6 +328,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (setq web-mode-css-indent-offset n) ; web-mode, css in html file
     (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
     (setq css-indent-offset n) ; css-mode
+    (setq python-indent-offset 4)
     )
   )
 
@@ -382,7 +385,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (sql-indent jedi jedi-core python-environment epc ctable concurrent deferred helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-statistics company-anaconda company auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient dash-functional helm-pydoc pythonic markdown-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode skewer-mode simple-httpd json-snatcher json-reformat yasnippet multiple-cursors js2-mode helm-css-scss haml-mode emmet-mode tide typescript-mode flycheck-pos-tip pos-tip flycheck helm-themes helm-swoop helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag ace-jump-helm-line helm helm-core yapfify ws-butler winum which-key wgrep web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline smex restart-emacs request rainbow-delimiters pyvenv pytest pyenv-mode py-isort popwin pip-requirements persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text mmm-mode markdown-toc macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint json-mode js2-refactor js-doc ivy-hydra indent-guide hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-make google-translate golden-ratio gh-md flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word cython-mode counsel-projectile column-enforce-mode coffee-mode clean-aindent-mode auto-highlight-symbol auto-compile async anaconda-mode aggressive-indent adaptive-wrap ace-window ace-link))))
+    (toml-mode racer cargo rust-mode yaml-mode powerline spinner hydra lv parent-mode projectile flyspell-correct-helm flyspell-correct pkg-info epl flx highlight smartparens iedit anzu evil goto-chg undo-tree bind-map bind-key auto-dictionary packed f dash s avy popup sql-indent jedi jedi-core python-environment epc ctable concurrent deferred helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-statistics company-anaconda company auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient dash-functional helm-pydoc pythonic markdown-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode skewer-mode simple-httpd json-snatcher json-reformat yasnippet multiple-cursors js2-mode helm-css-scss haml-mode emmet-mode tide typescript-mode flycheck-pos-tip pos-tip flycheck helm-themes helm-swoop helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag ace-jump-helm-line helm helm-core yapfify ws-butler winum which-key wgrep web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline smex restart-emacs request rainbow-delimiters pyvenv pytest pyenv-mode py-isort popwin pip-requirements persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text mmm-mode markdown-toc macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint json-mode js2-refactor js-doc ivy-hydra indent-guide hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-make google-translate golden-ratio gh-md flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word cython-mode counsel-projectile column-enforce-mode coffee-mode clean-aindent-mode auto-highlight-symbol auto-compile async anaconda-mode aggressive-indent adaptive-wrap ace-window ace-link))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
