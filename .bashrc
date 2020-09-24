@@ -88,45 +88,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ble='bundle'
-alias cb='catkin build'
-alias cdd='cd ${HOME}/dotfiles'
-alias cdp='cd ../'
-alias cdpp='cd ../../'
-alias cds='cd -'
-alias cdw='cd ~/works'
-alias clipboard='xsel --clipboard --input'
-alias cm='catkin_make'
-alias cpd='cd ../'
-alias cpdp='cd ../../'
-alias cwd='cdw'
-alias ec='emacsclient ./'
-alias eixt='exit'
-alias em='emacs'
-alias ew='emacs -nw'
-alias g11='g++ -std=c++11'
-alias g14='g++ -std=c++14'
-alias g17='g++ -std=c++17'
-alias gosh='rlwrap gosh'
-alias gpp='g++'
-alias grep='grep -n --color=auto'
-alias ks='ls'
-alias l='ls -CF'
-alias la='ls -A'
-alias ll='ls -alF'
-alias py2='python2.7'
-alias py='python3'
-alias pip2='pip'
-alias pip='pip3'
-alias remove='rm'
-alias rls='rails'
-alias rm='trash-put'
-alias s='ls -CF'
-alias shutdown='shutdown -h now'
-alias sl='ls'
-alias vi='vim'
-
 # trash-cli
 # Clone from 'https://github.com/andreafrancia/trash-cli'
 if type trash-put &> /dev/null
@@ -225,11 +186,22 @@ if [ `which rbenv` ]; then
   eval "$(rbenv init -)"
 fi
 
+# pyenv
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 # For point_cloud_viewer
 # source $HOME/.cargo/env
 # export PATH="$HOME/.cargo/bin:$PATH"
 
+# Cuda
+export PATH=/usr/local/cuda-10.2/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
 # Greeting
 echo -e "\e[32;1m${USER}@${HOSTNAME}\e[m:\e[34;1m~\e[m$"
 echo -e "\e[1m Hi, ${USER} !!\e[m"
-alias ic="ibmcloud"
+eval "$(starship init bash)"
