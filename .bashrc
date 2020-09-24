@@ -146,7 +146,7 @@ function kyutech-push() {
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
-# ~/.bash_aliases,instead of adding them here directly.
+# ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
@@ -181,6 +181,7 @@ export EDITOR='vim'
 # Ruby on Rails
 export PATH=$HOME/.rbenv/bin:$PATH
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
 if [ `which rbenv` ]; then
   eval "$(rbenv init -)"
 fi
