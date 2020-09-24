@@ -4,7 +4,7 @@
     a = add
     aa = add --all
     br = branch
-    co = !echo "[ERROR] Do not use 'checkout' command"
+    co = checkout
     com = commit
     di = diff
     ds = diff --staged
