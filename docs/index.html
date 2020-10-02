@@ -42,7 +42,7 @@ sh ${scripts_dir}/tools/github_cli.sh
 rm -rf ${dotfiles_dir}
 
 gh auth login
-git repo clone tanacchi/dotfiles ${dotfiles_dir}
+gh repo clone tanacchi/dotfiles ${dotfiles_dir}
 bash ${scripts_dir}/setup/install.bash
 
 # Ending message
