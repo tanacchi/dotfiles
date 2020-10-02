@@ -22,7 +22,7 @@ sudo apt install -y git \
 # Clone dotfiles repository
 cd ${HOME}
 if [ -d ${dotfiles_dir} ]; then
-  mv "${dotfiles_dir}" "${dotfiles_dir.backup}"
+  mv "${dotfiles_dir}" "${dotfiles_dir}.backup"
 fi
 git clone https://github.com/tanacchi/dotfiles.git ${dotfiles_dir}
 
