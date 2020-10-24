@@ -31,7 +31,7 @@ hash -r
 # Install Ruby
 
 rbenv rehash
-RUBY_VERSION="2.5.3"
+RUBY_VERSION="2.7.2"
 echo "Installing Ruby (version ${RUBY_VERSION})"
 rbenv install -l
 rbenv install ${RUBY_VERSION}
