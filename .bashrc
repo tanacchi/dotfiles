@@ -212,4 +212,3 @@ echo -e "\e[1m Hi, ${USER} !!\e[m"
 if command -v starship 1>/dev/null 2>&1; then
   eval "$(starship init bash)"
 fi
-source "$HOME/.cargo/env"
