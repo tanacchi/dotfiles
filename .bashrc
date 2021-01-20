@@ -165,10 +165,11 @@ if ! shopt -oq posix; then
 fi
 
 #ROS workspace
-ros_melodic="/opt/ros/melodic/setup.bash"
+ros_distribution="noetic"
+ros_core="/opt/ros/${ros_distribution}/setup.bash"
 
 catkin_ws=(
-    ${ros_melodic}
+    ${ros_core}
    "${HOME}/works/*/devel/setup.bash"
 ) 
 for target in ${catkin_ws[@]}; do
