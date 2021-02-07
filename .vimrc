@@ -63,6 +63,10 @@ NeoBundle 'mattn/emmet-vim'
 " Highlight whitespace on end of line
 NeoBundle 'bronson/vim-trailing-whitespace'
 
+" React
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
+
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 
@@ -196,6 +200,8 @@ let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
 
 autocmd BufRead,BufNewFile *.{launch,urdf,world,sdf} setfiletype html
+
+let g:jsx_ext_required = 0
 
 " NERDCommenter setting for .vue file
 let g:ft = ''
