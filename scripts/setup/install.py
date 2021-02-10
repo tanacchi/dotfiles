@@ -16,7 +16,6 @@ def create_git_user_config(git_user_config_path):
 def install_config(target, dir=Path.home(), name=None):
     name = target.name if name is None else name
     dst = dir.joinpath(name)
-    print(f"dst: {dst}")
     if dst.exists():
         dst.replace(Path.home().joinpath(name + ".backup"))
         print(f"{name} is replaced.")
@@ -47,21 +46,21 @@ def install_dotfiles():
     ]
     exclude_list = [dotfiles_path.joinpath(f) for f in exclude_list]
 
-    #  for target in dotfiles_path.glob(".*"):
-        #  if any(map(lambda f: f.samefile(target), exclude_list)):
-            #  continue
-        #  install_config(target)
+    for target in dotfiles_path.glob(".*"):
+        if any(map(lambda f: f.samefile(target), exclude_list)):
+            continue
+        install_config(target)
 
-    #  terminator_config_dir = Path(Path.home(), ".config", "terminator")
-    #  terminator_config_dir.mkdir(exist_ok=True)
-    #  install_config(
-        #  dotfiles_path.joinpath(".terminator"),
-        #  terminator_config_dir,
-        #  name="config"
-    #  )
+    terminator_config_dir = Path(Path.home(), ".config", "terminator")
+    terminator_config_dir.mkdir(exist_ok=True)
+    install_config(
+        dotfiles_path.joinpath(".terminator"),
+        terminator_config_dir,
+        name="config"
+    )
 
-    #  _ = subprocess.run(["git", "submodule", "init"])
-    #  _ = subprocess.run(["git", "submodule", "update"])
+    _ = subprocess.run(["git", "submodule", "init"])
+    _ = subprocess.run(["git", "submodule", "update"])
 
 
 if __name__ == '__main__':
