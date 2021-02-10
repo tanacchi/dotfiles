@@ -17,7 +17,10 @@ else
   echo "pyenv is already setup."
 fi
 
-pyenv install ${PYTHON_VERSION}
+pyenv versions | grep ${PYTHON_VERSION}
+if [ $? -ne 0 ]; then
+  pyenv install ${PYTHON_VERSION}
+fi
 pyenv global ${PYTHON_VERSION}
 
 curl https://raw.githubusercontent.com/tanacchi/dotfiles/remake-auto-setup-script-with-python/scripts/setup/autosetup.py | python
