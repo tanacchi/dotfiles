@@ -4,29 +4,46 @@ from pprint import pprint
 import subprocess
 
 
+def is_github_ssh_config_exists():
+    ssh_config_path = Path(Path.home(), ".ssh", "config")
+    if ssh_config_path.is_file():
+        with open(ssh_config_path, 'r') as f:
+            if 'github' in f.read():
+                return True
+    return False
+
+
+# Check environment
 os_type = platform.system()
 distribution = platform.release()
-
 
 if os_type != 'Linux':
     print("Sorry, this installer is not supported in your environment.")
     exit(1)
 
-
+# Path settings
 dotfiles_path = Path.home().joinpath("dotfiles")
 scripts_path = dotfiles_path.joinpath("scripts")
 
-#  if dotfiles_path.is_dir():
-    #  dotfiles_path.replace(Path.home().joinpath("dotfiles.backup"))
-
-#  repository_url = "https://github.com/tanacchi/dotfiles.git"
-#  _ = subprocess.run(["git", "clone", repository_url, str(dotfiles_path)])
-
-Path.home().joinpath(".ssh").mkdir(exist_ok=True)
-ssh_config_script_path = Path(scripts_path, "config", "git_ssh_config.sh")
+# Make backup of dotfiles
+if dotfiles_path.is_dir():
+    dotfiles_path.replace(Path.home().joinpath("dotfiles.backup"))
 
 
-#  _ = subprocess.run(["sh", str(ssh_config_script_path)])
+# Check ssh config for GitHub
+if (is_ssh_configured := is_github_ssh_config_exists()):
+    repository_url = "git@github.com:tanacchi/dotfiles.git"
+else:
+    repository_url = "https://github.com/tanacchi/dotfiles.git"
+
+    Path.home().joinpath(".ssh").mkdir(exist_ok=True)
+    ssh_config_script_path = Path(scripts_path, "config", "git_ssh_config.sh")
+    _ = subprocess.run(["sh", str(ssh_config_script_path)])
+
+
+# Clone this repository
+_ = subprocess.run(["git", "clone", repository_url, str(dotfiles_path)])
+
 
 scripts = ["git.sh", "vivaldi.sh", "vim.bash"]
 tools_path = scripts_path.joinpath("tools")
@@ -35,20 +52,25 @@ for path in scripts:
     if not path.is_file():
         raise FileNotFoundError(f"{str(path)} is not found.");
     proc = path.suffix[1:]
-    #  _ = subprocess.run([proc, str(path)])
+    _ = subprocess.run([proc, str(path)])
 
-from install import install_dotfiles
-
-install_dotfiles()
-
-#  dotfiles_path.unlink()
 
 print("""
 Download pages:
 \tSlack:   https://slack.com/intl/ja-jp/downloads/linux
 \tZoom:    https://zoom.us/download?os=linux
-\tDiscord: https://discord.com/download
-
-Please make ssh key for github and access the link below to set it up.
-https://github.com/settings/ssh/new"""
+\tDiscord: https://discord.com/download"""
 )
+
+if is_ssh_configured:
+    exit(0)
+
+print(f"""
+Please make ssh key for github and access the link below to set it up.
+https://github.com/settings/ssh/new
+
+And re-run this script by
+curl -L https://tanacchi.github.io/dotfiles | sh
+"""
+)
+dotfiles_path.unlink()
