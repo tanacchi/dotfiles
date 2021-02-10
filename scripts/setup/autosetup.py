@@ -39,3 +39,13 @@ for path in scripts:
 
 
 #  dotfiles_path.unlink()
+
+print("""
+Download pages:
+\tSlack:   https://slack.com/intl/ja-jp/downloads/linux
+\tZoom:    https://zoom.us/download?os=linux
+\tDiscord: https://discord.com/download
+
+Please make ssh key for github and access the link below to set it up.
+https://github.com/settings/ssh/new"""
+)
