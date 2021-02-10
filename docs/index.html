@@ -1,56 +1,23 @@
 #!/bin/bash
 # This is tanacchi's auto-setup-script
 
-# Setup shell
-set -eu
+PYTHON_VERSION="3.9.0"
 
-# Declare file path variables
-dotfiles_dir="${HOME}/dotfiles"
-scripts_dir="${dotfiles_dir}/scripts"
+set -eu
 
 # Update repositories and packages
 sudo apt update       -y
 sudo apt upgrade      -y
 sudo apt dist-upgrade -y
 
-# Install required tools
-sudo apt install -y git \
-                 terminator \
-                 trash-cli \
-                 xsel
-
-# Clone dotfiles repository
-cd ${HOME}
-if [ -d ${dotfiles_dir} ]; then
-  mv "${dotfiles_dir}" "${dotfiles_dir}.backup"
+# Setup pyenv
+if [ ! -d "${HOME}/.pyenv" ]; then
+  curl https://raw.githubusercontent.com/tanacchi/dotfiles/master/scripts/tools/pyenv.sh | sh
+else
+  echo "pyenv is already setup."
 fi
-git clone https://github.com/tanacchi/dotfiles.git ${dotfiles_dir}
 
-# Generate ssh keys for GitHub
-if [ ! -d "${HOME}/.ssh" ]; then
-  mkdir "${HOME}/.ssh"
-fi
-sh ${scripts_dir}/config/git_ssh_config.sh
+pyenv install ${PYTHON_VERSION}
+pyenv global ${PYTHON_VERSION}
 
-# Install (or Build) git, vivaldi, vim
-sh   ${scripts_dir}/tools/git.sh
-sh   ${scripts_dir}/tools/vivaldi.sh
-bash ${scripts_dir}/tools/vim.bash
-sh ${scripts_dir}/tools/github_cli.sh
-
-# Re:Clone and install dotfiles
-rm -rf ${dotfiles_dir}
-
-gh auth login
-gh repo clone tanacchi/dotfiles ${dotfiles_dir}
-bash ${scripts_dir}/setup/install.bash
-
-# Ending message
-clear
-echo "Download pages:"
-echo "\tSlack:   https://slack.com/intl/ja-jp/downloads/linux"
-echo "\tZoom:    https://zoom.us/download?os=linux"
-echo "\tDiscord: https://discord.com/download "
-echo "\n\n\n"
-echo "Please make ssh key for github and access the link below to set it up."
-echo "https://github.com/settings/ssh/new\n"
+curl https://raw.githubusercontent.com/tanacchi/dotfiles/remake-auto-setup-script-with-python/scripts/setup/autosetup.py | python
