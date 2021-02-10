@@ -37,6 +37,9 @@ for path in scripts:
     proc = path.suffix[1:]
     #  _ = subprocess.run([proc, str(path)])
 
+from install import install_dotfiles
+
+install_dotfiles()
 
 #  dotfiles_path.unlink()
 
