@@ -14,9 +14,28 @@ if os_type != 'Linux':
 
 
 dotfiles_path = Path.home().joinpath("dotfiles")
+scripts_path = dotfiles_path.joinpath("scripts")
 
-if dotfiles_path.is_dir():
-    dotfiles_path.replace(Path.home().joinpath("dotfiles.backup"))
+#  if dotfiles_path.is_dir():
+    #  dotfiles_path.replace(Path.home().joinpath("dotfiles.backup"))
 
-repository_url = "https://github.com/tanacchi/dotfiles.git"
-_ = subprocess.run(["git", "clone", repository_url, str(dotfiles_path)])
+#  repository_url = "https://github.com/tanacchi/dotfiles.git"
+#  _ = subprocess.run(["git", "clone", repository_url, str(dotfiles_path)])
+
+Path.home().joinpath(".ssh").mkdir(exist_ok=True)
+ssh_config_script_path = Path(scripts_path, "config", "git_ssh_config.sh")
+
+
+#  _ = subprocess.run(["sh", str(ssh_config_script_path)])
+
+scripts = ["git.sh", "vivaldi.sh", "vim.bash"]
+tools_path = scripts_path.joinpath("tools")
+for path in scripts:
+    path = tools_path.joinpath(path)
+    if not path.is_file():
+        raise FileNotFoundError(f"{str(path)} is not found.");
+    proc = path.suffix[1:]
+    #  _ = subprocess.run([proc, str(path)])
+
+
+#  dotfiles_path.unlink()
