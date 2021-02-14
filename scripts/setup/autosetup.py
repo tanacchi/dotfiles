@@ -1,7 +1,8 @@
-from pathlib import Path, PurePath
 import platform
-from pprint import pprint
+import shutil
 import subprocess
+from pathlib import Path, PurePath
+from pprint import pprint
 
 
 def is_github_ssh_config_exists():
@@ -29,7 +30,6 @@ scripts_path = dotfiles_path.joinpath("scripts")
 if dotfiles_path.is_dir():
     dotfiles_path.replace(Path.home().joinpath("dotfiles.backup"))
 
-
 # Check ssh config for GitHub
 if (is_ssh_configured := is_github_ssh_config_exists()):
     repository_url = "git@github.com:tanacchi/dotfiles.git"
@@ -40,27 +40,23 @@ else:
     ssh_config_script_path = Path(scripts_path, "config", "git_ssh_config.sh")
     _ = subprocess.run(["sh", str(ssh_config_script_path)])
 
-
 # Clone this repository
 _ = subprocess.run(["git", "clone", repository_url, str(dotfiles_path)])
-
 
 scripts = ["git.sh", "vivaldi.sh", "vim.bash"]
 tools_path = scripts_path.joinpath("tools")
 for path in scripts:
     path = tools_path.joinpath(path)
     if not path.is_file():
-        raise FileNotFoundError(f"{str(path)} is not found.");
+        raise FileNotFoundError(f"{str(path)} is not found.")
     proc = path.suffix[1:]
     _ = subprocess.run([proc, str(path)])
-
 
 print("""
 Download pages:
 \tSlack:   https://slack.com/intl/ja-jp/downloads/linux
 \tZoom:    https://zoom.us/download?os=linux
-\tDiscord: https://discord.com/download"""
-)
+\tDiscord: https://discord.com/download""")
 
 if is_ssh_configured:
     exit(0)
@@ -71,6 +67,5 @@ https://github.com/settings/ssh/new
 
 And re-run this script by
 curl -L https://tanacchi.github.io/dotfiles | sh
-"""
-)
-dotfiles_path.unlink()
+""")
+shutil.rmtree(dotfiles_path)
