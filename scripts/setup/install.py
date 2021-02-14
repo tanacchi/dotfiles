@@ -52,7 +52,7 @@ def install_dotfiles():
         install_config(target)
 
     terminator_config_dir = Path(Path.home(), ".config", "terminator")
-    terminator_config_dir.mkdir(exist_ok=True)
+    terminator_config_dir.mkdir(parents=True, exist_ok=True)
     install_config(
         dotfiles_path.joinpath(".terminator"),
         terminator_config_dir,
