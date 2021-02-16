@@ -212,3 +212,6 @@ echo -e "\e[1m Hi, ${USER} !!\e[m"
 if command -v starship 1>/dev/null 2>&1; then
   eval "$(starship init bash)"
 fi
+
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+source /usr/local/etc/bash_completion.d/git-completion.bash
