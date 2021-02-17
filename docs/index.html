@@ -12,7 +12,7 @@ sudo apt dist-upgrade -y
 
 # Setup pyenv
 if [ ! -d "${HOME}/.pyenv" ]; then
-  curl https://raw.githubusercontent.com/tanacchi/dotfiles/remake-auto-setup-script-with-python/scripts/tools/pyenv.sh | sh
+  curl https://raw.githubusercontent.com/tanacchi/dotfiles/master/scripts/tools/pyenv.sh | sh
 else
   echo "pyenv is already setup."
 fi
@@ -26,4 +26,4 @@ if [ $? -ne 0 ]; then
 fi
 pyenv global ${PYTHON_VERSION}
 
-curl https://raw.githubusercontent.com/tanacchi/dotfiles/remake-auto-setup-script-with-python/scripts/setup/autosetup.py | python
+curl https://raw.githubusercontent.com/tanacchi/dotfiles/master/scripts/setup/autosetup.py | python
