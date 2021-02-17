@@ -36,12 +36,13 @@ if (is_ssh_configured := is_github_ssh_config_exists()):
 else:
     repository_url = "https://github.com/tanacchi/dotfiles.git"
 
-    Path.home().joinpath(".ssh").mkdir(exist_ok=True)
-    ssh_config_script_path = Path(scripts_path, "config", "git_ssh_config.sh")
-    _ = subprocess.run(["sh", str(ssh_config_script_path)])
-
 # Clone this repository
 _ = subprocess.run(["git", "clone", repository_url, str(dotfiles_path)])
+
+if not is_ssh_configured:
+    Path.home().joinpath(".ssh").mkdir(exist_ok=True)
+    ssh_config_script_path = Path(scripts_path, "config", "git_ssh_config.sh")
+    status = subprocess.run(["sh", str(ssh_config_script_path)])
 
 scripts = ["git.sh", "vivaldi.sh", "vim.bash"]
 tools_path = scripts_path.joinpath("tools")
@@ -50,7 +51,7 @@ for path in scripts:
     if not path.is_file():
         raise FileNotFoundError(f"{str(path)} is not found.")
     proc = path.suffix[1:]
-    _ = subprocess.run([proc, str(path)])
+    _ = subprocess.run([proc, str(path)], stdout=subprocess.STDOUT)
 
 print("""
 Download pages:
