@@ -1,3 +1,5 @@
+#!/bin/sh
+
 echo \
 "Host github
   HostName github.com
