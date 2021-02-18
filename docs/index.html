@@ -3,12 +3,13 @@
 
 PYTHON_VERSION="3.9.0"
 
-# set -eu
+set -eu
 
 # Update repositories and packages
-sudo apt update       -y
-sudo apt upgrade      -y
-sudo apt dist-upgrade -y
+# Set INSTALL_COMMAND="brew" if the OS is MacOS
+UPDATE_COMMAND="${INSTALL_COMMAND:-apt -y}"
+sudo $UPDATE_COMMAND update
+sudo $UPDATE_COMMAND upgrade
 
 # Setup pyenv
 if [ ! -d "${HOME}/.pyenv" ]; then
@@ -20,10 +21,7 @@ fi
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-pyenv versions | grep ${PYTHON_VERSION}
-if [ $? -ne 0 ]; then
-  pyenv install ${PYTHON_VERSION}
-fi
+pyenv install -f ${PYTHON_VERSION}
 pyenv global ${PYTHON_VERSION}
 
 curl https://raw.githubusercontent.com/tanacchi/dotfiles/master/scripts/setup/autosetup.py | python
