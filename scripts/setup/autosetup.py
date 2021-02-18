@@ -41,6 +41,8 @@ if (is_ssh_configured := is_github_ssh_config_exists()):
 else:
     repository_url = "https://github.com/tanacchi/dotfiles.git"
 
+logging.info(f"$ git clone ${repository_url} ${str(dotfiles_path)}")
+
 # Clone this repository
 _ = subprocess.run(["git", "clone", repository_url, str(dotfiles_path)])
 logging.debug(f"git clone ${repository_url} finished.")
