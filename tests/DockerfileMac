@@ -1,0 +1,13 @@
+FROM sickcodes/docker-osx:latest
+
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+RUN eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+RUN export PATH='/home/linuxbrew/.linuxbrew/bin:$PATH'
+ARG brew=/home/linuxbrew/.linuxbrew/bin/brew
+RUN $brew -v && $brew update
+
+ENV TZ=Asia/Tokyo
+
+RUN curl -L https://raw.githubusercontent.com/tanacchi/dotfiles/adjust-for-macos/docs/index.html | bash
+
+CMD ["bash"]
