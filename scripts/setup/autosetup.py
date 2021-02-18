@@ -1,3 +1,4 @@
+import logging
 import platform
 import shutil
 import subprocess
@@ -14,12 +15,15 @@ def is_github_ssh_config_exists():
     return False
 
 
+logging.basicConfig(level=logging.DEBUG)
+
 # Check environment
 os_type = platform.system()
 distribution = platform.release()
 
 if os_type != 'Linux':
-    print("Sorry, this installer is not supported in your environment.")
+    logging.warning(
+        "Sorry, this installer is not supported in your environment.")
     exit(1)
 
 # Path settings
@@ -29,6 +33,7 @@ scripts_path = dotfiles_path.joinpath("scripts")
 # Make backup of dotfiles
 if dotfiles_path.is_dir():
     dotfiles_path.replace(Path.home().joinpath("dotfiles.backup"))
+    logging.info("~/dotfiles has been existed, so replaced.")
 
 # Check ssh config for GitHub
 if (is_ssh_configured := is_github_ssh_config_exists()):
@@ -38,11 +43,13 @@ else:
 
 # Clone this repository
 _ = subprocess.run(["git", "clone", repository_url, str(dotfiles_path)])
+logging.debug(f"git clone ${repository_url} finished.")
 
 if not is_ssh_configured:
     Path.home().joinpath(".ssh").mkdir(exist_ok=True)
     ssh_config_script_path = Path(scripts_path, "config", "git_ssh_config.sh")
     status = subprocess.run(["sh", str(ssh_config_script_path)])
+    logging.info("~/.ssh/config is updated for github.")
 
 scripts = ["git.sh", "vivaldi.sh", "vim.bash"]
 tools_path = scripts_path.joinpath("tools")
