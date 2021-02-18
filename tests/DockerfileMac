@@ -8,6 +8,7 @@ RUN $brew -v && $brew update
 
 ENV TZ=Asia/Tokyo
 
+ENV PKG_COMMAND="$brew"
 RUN curl -L https://raw.githubusercontent.com/tanacchi/dotfiles/adjust-for-macos/docs/index.html | bash
 
 CMD ["bash"]

@@ -6,10 +6,10 @@ PYTHON_VERSION="3.9.0"
 set -eu
 
 # Update repositories and packages
-# Set INSTALL_COMMAND="brew" if the OS is MacOS
-UPDATE_COMMAND="${INSTALL_COMMAND:-apt -y}"
-sudo $UPDATE_COMMAND update
-sudo $UPDATE_COMMAND upgrade
+# Set PKG_COMMAND="brew" if the OS is MacOS
+PKG_COMMAND="${PKG_COMMAND:-apt -y}"
+sudo $PKG_COMMAND update
+sudo $PKG_COMMAND upgrade
 
 # Setup pyenv
 if [ ! -d "${HOME}/.pyenv" ]; then
