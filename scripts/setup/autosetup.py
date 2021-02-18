@@ -61,7 +61,7 @@ for path in scripts:
         raise FileNotFoundError(f"{str(path)} is not found.")
     proc = path.suffix[1:]
     logging.info(f"'Running $ {proc} {path}'")
-    _ = subprocess.run([proc, str(path)], stdout=subprocess.STDOUT)
+    _ = subprocess.run([proc, str(path)])
 
 print("""
 Download pages:
