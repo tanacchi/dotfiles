@@ -37,8 +37,6 @@ alias rm='trash-put'
 alias s='ls -CF'
 alias shutdown='shutdown -h now'
 alias sl='ls'
-# alias vi='vim'
-alias vi='emacsclient -nw -a ""'
 
 # trash-cli
 # Clone from 'https://github.com/andreafrancia/trash-cli'
@@ -47,3 +45,8 @@ then
     alias rm=trash-put
 fi
 
+if type emacsclient &> /dev/null; then
+  alias vi='emacsclient -nw -a ""'
+else
+  alias vi='vim'
+fi
