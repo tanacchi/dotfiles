@@ -206,6 +206,13 @@ if [ -f ${HOME}/.cargo.env ]; then
   source "$HOME/.cargo/env"
 fi
 
+
+# Golang
+if [ -e /usr/local/go/bin ]; then
+    export PATH=${PATH}:/usr/local/go/bin
+fi
+
+
 # Greeting
 echo -e "\e[32;1m${USER}@${HOSTNAME}\e[m:\e[34;1m~\e[m$"
 echo -e "\e[1m Hi, ${USER} !!\e[m"
