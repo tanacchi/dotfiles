@@ -199,8 +199,9 @@ fi
 # export PATH="$HOME/.cargo/bin:$PATH"
 
 # Cuda
-export PATH=/usr/local/cuda-10.2/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+CUDA_VERSION="11.2"
+export PATH=/usr/local/cuda-${CUDA_VERSION}/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-${CUDA_VERSION}/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 if [ -f ${HOME}/.cargo.env ]; then
   source "$HOME/.cargo/env"
