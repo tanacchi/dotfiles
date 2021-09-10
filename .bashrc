@@ -144,6 +144,15 @@ function kyutech-push() {
     scp -r ${PWD} "${username}@${hostname}:/home/t/${username}/$1"
 }
 
+function to-mp4() {
+    if [ $# -ne 1 ]; then
+        echo "Prease set file to input."
+        return 1
+    fi
+    outputfile=`basename $1`
+    ffmpeg -i $1 -vcodec copy ${outputfile%.*}.mp4
+}
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
