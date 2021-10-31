@@ -144,6 +144,15 @@ function kyutech-push() {
     scp -r ${PWD} "${username}@${hostname}:/home/t/${username}/$1"
 }
 
+function to-gif() {
+    if [ $# -ne 1 ]; then
+        echo "Prease set file to input."
+        return 1
+    fi
+    outputfile=`basename $1`
+    ffmpeg -i $1 ${outputfile%.*}.gif
+}
+
 function to-mp4() {
     if [ $# -ne 1 ]; then
         echo "Prease set file to input."
@@ -151,6 +160,15 @@ function to-mp4() {
     fi
     outputfile=`basename $1`
     ffmpeg -i $1 -vcodec copy ${outputfile%.*}.mp4
+}
+
+function to-x10() {
+    if [ $# -lt 1 ]; then
+        echo "Prease set file to input."
+        return 1
+    fi
+    outputfile=`basename $1`
+    ffmpeg -i $1 -filter:v "setpts=PTS/${2-10}" ${outputfile%.*}-x${2-10}.mp4
 }
 
 # Alias definitions.
