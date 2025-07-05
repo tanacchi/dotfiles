@@ -11,3 +11,5 @@ history
 .vim/.netrwhist
 
 __pycache__
+
+.DS_Store
