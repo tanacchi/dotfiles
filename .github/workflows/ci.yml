@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  static-checks:
+    name: Static checks
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile Python scripts
+        run: python3 -m py_compile scripts/setup/install.py scripts/setup/autosetup.py
+
+      - name: Check shell syntax
+        run: |
+          bash -n \
+            .bashrc \
+            .bash_aliases \
+            docs/index.html \
+            scripts/setup/uninstall.bash \
+            scripts/tools/rails.bash \
+            scripts/utils/functions.bash \
+            scripts/utils/setup_gitconfig_for_guest.bash \
+            scripts/utils/update.sh
+
+      - name: Check Vim config
+        run: vim -Nu .vimrc -i NONE -n --not-a-term +'set nomore' +qa
+
+  ubuntu-bootstrap:
+    name: Ubuntu bootstrap (${{ matrix.ubuntu }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        ubuntu:
+          - "22.04"
+          - "24.04"
+          - "26.04"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build bootstrap image
+        run: docker build -f "tests/Dockerfile${{ matrix.ubuntu }}" .
+
+  macos-bootstrap:
+    name: macOS bootstrap
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile Python scripts
+        run: python3 -m py_compile scripts/setup/install.py scripts/setup/autosetup.py
+
+      - name: Check shell syntax
+        run: |
+          bash -n \
+            .bashrc \
+            .bash_aliases \
+            docs/index.html \
+            scripts/setup/uninstall.bash \
+            scripts/tools/rails.bash \
+            scripts/utils/functions.bash \
+            scripts/utils/setup_gitconfig_for_guest.bash \
+            scripts/utils/update.sh
+
+      - name: Dry-run installer
+        run: python3 scripts/setup/install.py --dry-run --install-mise --install-tools

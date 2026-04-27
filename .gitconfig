@@ -25,11 +25,20 @@
     st = stash
     sub-update = !git submodule foreach git pull origin master
     sw = switch
-    unstage = !git add --all && git reset HEAD --hard
+    unstage = restore --staged
 [color]
     ui = auto
 [core]
     editor = vim
+    pager = delta
+[delta]
+    navigate = true
+    line-numbers = true
+    side-by-side = true
+[diff]
+    colorMoved = default
+[init]
+    defaultBranch = main
 [merge]
     ff = false
 [pull]

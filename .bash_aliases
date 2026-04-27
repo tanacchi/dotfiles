@@ -1,53 +1,58 @@
-alias ble='bundle'
-alias cb='catkin build'
-alias cdd='cd ${HOME}/dotfiles'
-alias cdp='cd ../'
-alias cdpp='cd ../../'
+# Navigation
+alias cdd='cd "$HOME/dotfiles"'
+alias cdw='cd "$HOME/works"'
+alias cdp='cd ..'
+alias cdpp='cd ../..'
 alias cds='cd -'
-alias cdw='cd ~/works'
-alias clipboard='xsel --clipboard --input'
-alias cm='catkin_make'
-alias cpd='cd ../'
-alias cpdp='cd ../../'
-alias cwd='cdw'
-alias ec='emacsclient ./'
-alias eixt='exit'
-alias em='emacs'
-alias ew='emacs -nw'
-alias flatten='xsel --clipboard --output | tr "\n"" "  " | xsel --clipboard --input'
-alias g11='g++ -std=c++11'
-alias g14='g++ -std=c++14'
-alias g17='g++ -std=c++17'
-alias gosh='rlwrap gosh'
-alias gpp='g++'
-alias grep='grep -n --color=auto'
-alias ic="ibmcloud"
-alias ks='ls'
+
+# Listing
 alias l='ls -CF'
 alias la='ls -A'
 alias ll='ls -alF'
-alias paste='xsel --clipboard --output'
-alias pip2='pip'
-alias pip='pip3'
-alias py2='python2.7'
-alias py='python3'
-alias remove='rm'
-alias rls='rails'
-alias rm='trash-put'
-alias rusti='evcxr'
-alias s='ls -CF'
-alias shutdown='shutdown -h now'
+alias ks='ls'
 alias sl='ls'
 
-# trash-cli
-# Clone from 'https://github.com/andreafrancia/trash-cli'
-if type trash-put &> /dev/null
-then
-    alias rm=trash-put
+# Editors
+alias vi='vim'
+alias v='vim'
+
+# Git
+alias g='git'
+alias gs='git status --short'
+alias gd='git diff'
+alias gds='git diff --staged'
+alias gl='git log --oneline --decorate --graph --all'
+
+# Language/runtime shortcuts
+alias py='python3'
+alias pip='python3 -m pip'
+alias gpp='g++'
+alias g11='g++ -std=c++11'
+alias g14='g++ -std=c++14'
+alias g17='g++ -std=c++17'
+
+# Safer removal when trash-cli is installed.
+if command -v trash-put >/dev/null 2>&1; then
+  alias rm='trash-put'
 fi
 
-if type emacsclient &> /dev/null; then
-  alias vi='emacsclient -nw -a ""'
-else
-  alias vi='vim'
+# Clipboard helpers.
+if command -v pbcopy >/dev/null 2>&1; then
+  alias clipboard='pbcopy'
+  alias paste='pbpaste'
+elif command -v xsel >/dev/null 2>&1; then
+  alias clipboard='xsel --clipboard --input'
+  alias paste='xsel --clipboard --output'
+fi
+
+if command -v bat >/dev/null 2>&1; then
+  alias cat='bat --paging=never'
+fi
+
+if command -v delta >/dev/null 2>&1; then
+  alias diff='delta'
+fi
+
+if command -v fzf >/dev/null 2>&1; then
+  alias fzfp='fzf --preview "bat --color=always --style=numbers --line-range=:200 {} 2>/dev/null || sed -n '\''1,200p'\'' {}"'
 fi

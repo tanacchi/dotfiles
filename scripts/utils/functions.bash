@@ -2,16 +2,18 @@
 
 function create_git_user_config()
 {
-  read -p "Please set your 'user name' on git : " git_user_name
-  read -p "Please set your 'email' on git : " git_email
-  echo -e "[user]\n\tname = ${git_user_name}\n\temail = ${git_email}\n" > ${dotfiles_dir}/.gitconfig.user
+  : "${dotfiles_dir:?}"
+  read -r -p "Please set your 'user name' on git : " git_user_name
+  read -r -p "Please set your 'email' on git : " git_email
+  printf "[user]\n\tname = %s\n\temail = %s\n" "${git_user_name}" "${git_email}" > "${dotfiles_dir}/.gitconfig.user"
 }
 
 function link_file()
 {
-  if [ -e ${HOME}/${1} -a ! -L ${HOME}/${1} ]; then
-    mv ${HOME}/${1} ${HOME}/${1}.backup
+  : "${dotfiles_dir:?}"
+  if [ -e "${HOME}/${1}" ] && [ ! -L "${HOME}/${1}" ]; then
+    mv "${HOME}/${1}" "${HOME}/${1}.backup"
     echo "${1} was replaced."
   fi
-  ln -sfn ${dotfiles_dir}/${1} ${HOME}/
+  ln -sfn "${dotfiles_dir}/${1}" "${HOME}/"
 }

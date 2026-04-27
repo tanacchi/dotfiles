@@ -1,0 +1,14 @@
+FROM ubuntu:noble
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Asia/Tokyo
+
+RUN apt update -y
+RUN apt install -y bash curl git python3 sudo tzdata
+
+WORKDIR /root/dotfiles
+COPY . /root/dotfiles
+
+RUN python3 scripts/setup/install.py --dry-run --install-mise --install-tools
+
+CMD ["bash"]
