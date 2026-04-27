@@ -8,6 +8,8 @@ history
 *.gitconfig.user*
 
 .vim/bundle/*
+.vim/plugged/*
+.vim/undo/*
 .vim/.netrwhist
 
 __pycache__

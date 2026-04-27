@@ -1,29 +1,26 @@
-#!/bin/bash
-# This is tanacchi's auto-setup-script
+#!/usr/bin/env bash
+set -euo pipefail
 
-PYTHON_VERSION="3.9.0"
+repository_url="https://github.com/tanacchi/dotfiles.git"
+dotfiles_dir="${HOME}/dotfiles"
 
-# set -eu
+if ! command -v git >/dev/null 2>&1; then
+  echo "git is required before installing dotfiles." >&2
+  exit 1
+fi
 
-# Update repositories and packages
-sudo apt update       -y
-sudo apt upgrade      -y
-sudo apt dist-upgrade -y
+if ! command -v python3 >/dev/null 2>&1; then
+  echo "python3 is required before installing dotfiles." >&2
+  exit 1
+fi
 
-# Setup pyenv
-if [ ! -d "${HOME}/.pyenv" ]; then
-  curl https://raw.githubusercontent.com/tanacchi/dotfiles/master/scripts/tools/pyenv.sh | sh
+if [ -d "${dotfiles_dir}/.git" ]; then
+  git -C "${dotfiles_dir}" pull --ff-only
+elif [ -e "${dotfiles_dir}" ]; then
+  mv "${dotfiles_dir}" "${dotfiles_dir}.backup.$(date +%Y%m%d%H%M%S)"
+  git clone "${repository_url}" "${dotfiles_dir}"
 else
-  echo "pyenv is already setup."
+  git clone "${repository_url}" "${dotfiles_dir}"
 fi
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-pyenv versions | grep ${PYTHON_VERSION}
-if [ $? -ne 0 ]; then
-  pyenv install ${PYTHON_VERSION}
-fi
-pyenv global ${PYTHON_VERSION}
-
-curl https://raw.githubusercontent.com/tanacchi/dotfiles/master/scripts/setup/autosetup.py | python
+python3 "${dotfiles_dir}/scripts/setup/install.py" --install-mise --install-tools

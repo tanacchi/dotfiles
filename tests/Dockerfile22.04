@@ -1,0 +1,10 @@
+FROM ubuntu:jammy
+
+RUN apt update -y
+RUN apt install -y bash curl git python3 sudo tzdata
+
+ENV TZ=Asia/Tokyo
+
+RUN curl -L https://tanacchi.github.io/dotfiles | bash
+
+CMD ["bash"]
