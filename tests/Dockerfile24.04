@@ -5,6 +5,9 @@ RUN apt install -y bash curl git python3 sudo tzdata
 
 ENV TZ=Asia/Tokyo
 
-RUN curl -L https://tanacchi.github.io/dotfiles | bash
+WORKDIR /root/dotfiles
+COPY . /root/dotfiles
+
+RUN python3 scripts/setup/install.py --dry-run --install-mise --install-tools
 
 CMD ["bash"]

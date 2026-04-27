@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ubuntu:26.04
 
 RUN apt update -y
 RUN apt install -y bash curl git python3 sudo tzdata
