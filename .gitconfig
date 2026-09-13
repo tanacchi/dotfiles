@@ -37,6 +37,9 @@
     side-by-side = true
 [diff]
     colorMoved = default
+[ghq]
+    root = ~/works
+    root = ~/works/ghq
 [init]
     defaultBranch = main
 [merge]
