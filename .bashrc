@@ -1,5 +1,22 @@
 # ~/.bashrc
 
+# cmux は bash 3.2 向けの起動処理を PROMPT_COMMAND として *export* して渡す
+# (/Applications/cmux.app/Contents/Resources/shell-integration/cmux-bash-bootstrap.bash)。
+# export 属性は bash-preexec / cmux / starship が値を書き換えたあとも残るため、
+# 合成後の値が全ての子プロセスへ継承され、統合を読み込まない bash が
+# プロンプトごとに __bp_precmd_invoke_cmd / _cmux_prompt_command /
+# __bp_interactive_mode の command not found を吐く (manaflow-ai/cmux#11257)。
+#
+# 1. 継承してきた「合成済み」の値はこの shell では関数が無く実行できないので捨てる。
+#    cmux 本来の bootstrap（marker を含む）だけは温存する — 順序が重要で、
+#    bootstrap 本文にも _cmux_prompt_command の文字列が含まれるため marker を先に見る。
+case "${PROMPT_COMMAND-}" in
+  *__cmux_bash_bootstrap_marker__*) ;;
+  *__bp_precmd_invoke_cmd*|*__bp_interactive_mode*|*_cmux_prompt_command*) unset PROMPT_COMMAND ;;
+esac
+# 2. この shell から先へ漏らさない。値は保ったまま export 属性だけ外す。
+export -n PROMPT_COMMAND 2>/dev/null
+
 # Stop here for non-interactive shells.
 case $- in
   *i*) ;;
